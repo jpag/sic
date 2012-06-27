@@ -106,7 +106,7 @@
                 appendScriptName = '.min';
                 //define a blank function to handle all traces:
                 window.Debug = new function(){return{trace:function(str){}}};
-              }
+              }else{ Debug.init(); };
               
               //loop through and find all the scripts 
               //to write into the document.

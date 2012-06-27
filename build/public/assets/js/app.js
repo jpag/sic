@@ -35,9 +35,10 @@ var NavView = Em.View.create({
 	},
 
 	resize:function(obj){
-		
-		var pos = 'fixed';
-		var top = ($(window).scrollTop() > (TopView.$().height()-NavView.$().height()) )? 0 :  TopView.$().height()-$(window).scrollTop()-NavView.$().height() ;
+		var navcoordY = (TopView.$().height()-NavView.$().height());
+
+		var pos = ($(window).scrollTop() > navcoordY )? 'fixed' : 'absolute';
+		var top = ($(window).scrollTop() > navcoordY )? 0 :  TopView.$().height()-NavView.$().height() ;
 
 		var left = (obj.width - NavView.$().width())/2;
 
