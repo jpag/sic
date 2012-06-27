@@ -1,0 +1,171 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/images/icons/apple-touch-icon.png">
+  
+  <link rel="stylesheet" href="assets/css/global.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="container" >
+
+</div>
+
+
+  <script type="text/x-handlebars" data-template-name="container-template" >
+    <div class="content">
+
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="nav-template" >
+    <ul>
+    {{#each items}}
+      <li class="navigation-item" {{bindAttr data-link="link" }} >{{name}}</li>
+    {{/each}}
+    </ul>
+  </script>
+
+
+
+  <!-- 3rd party libraries -->  
+  <script src="assets/js/libs/jquery-1.7.2.min.js"></script>
+  <script src="assets/js/libs/jquery.mousewheel.js"></script>
+  <script src="assets/js/libs/ember-0.9.8.1.min.js"></script>
+
+  
+  <!-- 
+      remove the debugger loader script on live to: 
+        -load MIN scripts
+        -disable all Debug.trace calls (runs a blank function.)
+  -->
+  <script src="assets/js/debugger.js"></script>
+  
+
+  
+  <script type="text/javascript" >
+    //'GLOBAL' scope/setup
+    //SOME OF THIS could be dynamically retrieved from a server side script:
+
+    var global = new function(){
+      
+      return{
+            //root folder of the overall site
+            //add trailing '/' i.e. http://www.example.com/
+            root:"",
+            
+            //CDN hosting and a revision number
+            //append it here:
+            version:"0", 
+
+            //used only if it is NOT "" 
+            //for hosting static files on a different server.
+            //add trailing '/' i.e. http://www.example.com/
+            _assetsroot:"", 
+
+            assets:function(){
+              var path = global.root;
+              if( global._assetsroot != '' ) path = global._assetsroot;
+              if( global.version > 0 ) path += "/"+global.version+'/';
+              path += "assets/";
+              return path;
+            },
+
+            //FACEBOOK INFO:
+            fb:{
+              appid:""
+            },
+
+            //Should be one script on start:
+            // -the rest managed by require.js 
+            // -or all minified into one script?
+            insertScripts:[
+                        "app"
+                        ],
+
+            generateScripts:function(){
+              //load minify version(s) of scripts:
+              //if NOT in debugger mode.
+
+              var appendScriptName = '';
+              if( !window.Debug ){
+                appendScriptName = '.min';
+                //define a blank function to handle all traces:
+                window.Debug = new function(){return{trace:function(str){}}};
+              }
+              
+              //loop through and find all the scripts 
+              //to write into the document.
+              var s;
+              for(var s=0; s< global.insertScripts.length ; s++ ){
+                  var sjs = '<script src="'+global.assets()+'js/'+global.insertScripts[s]+appendScriptName+'.js"><\/script>';
+                  document.write( sjs );
+              };
+            }                       
+      }
+    }
+
+
+    global.generateScripts();
+
+  </script>
+
+
+
+  <script type="text/javascript" >
+    $(document).ready(function(){
+
+      TopView.appendTo("#container");
+      AboutView.appendTo("#container");
+      FormulasView.appendTo("#container");
+      TeamView.appendTo("#container");
+      OpportunitiesView.appendTo("#container");
+      ContactView.appendTo("#container");
+      
+      NavView.appendTo("#container");
+
+    });
+
+    $(window).bind({
+      'mousewheel':function(event, delta) {
+        NavView.scrollEvent(event, delta);    
+      },
+
+      'resize' : function(event){
+        resizeAll();    
+      }
+    });
+
+
+    function resizeAll (){
+
+        var obj = {width:$(window).width() , height:$(window).height() };
+        
+        TopView.resize(obj);
+        AboutView.resize(obj);
+        FormulasView.resize(obj);
+        TeamView.resize(obj);
+        OpportunitiesView.resize(obj);
+        ContactView.resize(obj);
+
+        NavView.resize(obj);
+      };
+  </script>
+
+
+</body>
+</html>

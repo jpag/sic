@@ -1,0 +1,21 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Applications/MAMP/htdocs/sic"
+		}
+	],
+	"build_systems":
+	[
+		{
+			"cmd":
+				[
+					"lessc",
+					"-x",
+					"$project_path/build/public/assets/css/global.less",
+					"$project_path/build/public/assets/css/global.css"
+				],
+				"name": "CSS LESS MIN"
+		}
+	]
+}

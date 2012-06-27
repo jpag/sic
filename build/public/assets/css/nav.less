@@ -1,0 +1,34 @@
+@navHeight:20px;
+@navPadding:15px;
+
+.navigation{
+	width:@siteWidth;
+	height: @navHeight+@navPadding*2;
+	margin:auto;
+
+	background-color:#FFFFFF;
+	border:1px solid #BBB;
+
+	ul{
+		height: @navHeight+@navPadding*2;
+	}
+
+	ul, li{
+		list-style: none;
+		height:@navHeight;
+		margin:0px;
+	}
+
+
+	.navigation-item{
+		display: inline;
+		position: relative;
+		float:left;
+		width:@siteWidth/5;
+		text-align: center;
+		text-transform: uppercase;
+
+		padding-top:@navPadding;
+		padding-bottom:@navPadding;
+	}
+}

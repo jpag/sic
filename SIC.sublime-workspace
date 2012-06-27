@@ -1,0 +1,323 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"local",
+				"localhost"
+			],
+			[
+				"type",
+				"type-body"
+			],
+			[
+				"tw",
+				"twitterUser"
+			],
+			[
+				"up",
+				"updateState"
+			],
+			[
+				"cu",
+				"currentState"
+			],
+			[
+				"retu",
+				"returnThis"
+			],
+			[
+				"selected",
+				"selectedYear"
+			],
+			[
+				"self-i",
+				"self-icon-btn"
+			],
+			[
+				"nav-",
+				"nav-categories"
+			],
+			[
+				"t",
+				"text	text-transform: capitalize/upper/lower"
+			],
+			[
+				"vis",
+				"visibleWidthDefault"
+			],
+			[
+				"proj",
+				"project-container"
+			],
+			[
+				"z",
+				"z-index"
+			],
+			[
+				"nav",
+				"nav-categories"
+			],
+			[
+				"master",
+				"masterModel"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "README.md",
+			"settings":
+			{
+				"buffer_size": 895,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"col",
+				"Color picker"
+			],
+			[
+				"colo",
+				"Color picker"
+			],
+			[
+				"co",
+				"Color picker"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"c",
+				"Color picker"
+			],
+			[
+				"color",
+				"Color picker"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"ember",
+				"Simple Ember.js Navigator: List controllers"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 494.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/sites/default/new.settings.php",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/sites/default/settings.php",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/index.html",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/includes/menu.inc",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/assets/js/app.js",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/assets/js/models.js",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/assets/css/style.css",
+		"/Applications/MAMP/htdocs/jpgary/trunk/public/assets/js/app.min.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"field-label",
+			"windows\\temp",
+			"c:\\windows\\temp",
+			"user_access",
+			"self-cont",
+			"masterModel.currentState",
+			"{{#each",
+			"state",
+			"currentState",
+			"currentstate",
+			"changestate",
+			"changeState",
+			"currentstate",
+			"categories",
+			"data",
+			"selected",
+			"	},",
+			"GothamBook",
+			"rgba",
+			"150",
+			"margin-left",
+			"hover",
+			"shadow",
+			"webkit-box-",
+			"project-container",
+			"contractedWidth",
+			"f2ece4",
+			"nav-cont",
+			"nav-container",
+			"nav-cont",
+			"didInsertElement",
+			"ProjectView-template",
+			"ProjectView",
+			"defaultWidth",
+			"clearQueue",
+			"overflow"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "README.md",
+					"settings":
+					{
+						"buffer_size": 895,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								814,
+								833
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Markdown/Markdown.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 0.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/Applications/MAMP/htdocs/template/template.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 259.0,
+	"status_bar_visible": true
+}
