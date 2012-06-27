@@ -79,7 +79,32 @@
 			"file": "build/public/assets/js/app.js",
 			"settings":
 			{
-				"buffer_size": 2720,
+				"buffer_size": 2754,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/index.html",
+			"settings":
+			{
+				"buffer_size": 4924,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/js/copy.js",
+			"settings":
+			{
+				"buffer_size": 59,
+				"line_ending": "Unix",
+				"name": "var copy = {"
+			}
+		},
+		{
+			"file": "build/public/assets/js/debugger.js",
+			"settings":
+			{
+				"buffer_size": 835,
 				"line_ending": "Unix"
 			}
 		}
@@ -174,6 +199,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"container",
 			"field-label",
 			"windows\\temp",
 			"c:\\windows\\temp",
@@ -227,6 +253,7 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -263,15 +290,15 @@
 					"file": "build/public/assets/js/app.js",
 					"settings":
 					{
-						"buffer_size": 2720,
+						"buffer_size": 2754,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1131,
-								1131
+								1134,
+								1134
 							]
 						],
 						"settings":
@@ -281,7 +308,93 @@
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 126.0,
+						"translation.y": 357.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "build/public/index.html",
+					"settings":
+					{
+						"buffer_size": 4924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1094,
+								1094
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "build/public/assets/js/copy.js",
+					"settings":
+					{
+						"buffer_size": 59,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var copy = {",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "build/public/assets/js/debugger.js",
+					"settings":
+					{
+						"buffer_size": 835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								835,
+								835
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -343,12 +456,12 @@
 		"selected_items":
 		[
 			[
-				"uni",
-				"/Applications/MAMP/htdocs/unicef/unicef.sublime-project"
+				"",
+				"/Applications/MAMP/htdocs/videovoices/videovoices.sublime-project"
 			],
 			[
-				"",
-				"/Applications/MAMP/htdocs/template/template.sublime-project"
+				"uni",
+				"/Applications/MAMP/htdocs/unicef/unicef.sublime-project"
 			]
 		],
 		"width": 380.0

@@ -39,7 +39,6 @@ var NavView = Em.View.create({
 
 		var pos = ($(window).scrollTop() > navcoordY )? 'fixed' : 'absolute';
 		var top = ($(window).scrollTop() > navcoordY )? 0 :  TopView.$().height()-NavView.$().height() ;
-
 		var left = (obj.width - NavView.$().width())/2;
 
 		
@@ -56,6 +55,10 @@ var TopView = Em.View.create({
 	templateName:"container-template",
 	classNames:["top", "container"],
 	
+	childView: Em.View.create({
+
+	})
+
 	init:function(){
  		this._super();
   	},

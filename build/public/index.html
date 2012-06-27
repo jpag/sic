@@ -28,7 +28,7 @@
 
   <script type="text/x-handlebars" data-template-name="container-template" >
     <div class="content">
-
+       {{view childView viewName="childViewInstance"}}
     </div>
   </script>
 
@@ -94,7 +94,8 @@
             // -the rest managed by require.js 
             // -or all minified into one script?
             insertScripts:[
-                        "app"
+                        "app",
+                        "copy"
                         ],
 
             generateScripts:function(){
