@@ -28,16 +28,44 @@
 
   <script type="text/x-handlebars" data-template-name="container-template" >
     <div class="content">
-       {{view childView viewName="childViewInstance"}}
+    <!-- insert the proper template in here -->      
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="nav-template" >
     <ul>
     {{#each items}}
-      <li class="navigation-item" {{bindAttr data-link="link" }} >{{name}}</li>
+      <li class="navigation-item" {{bindAttr data-link="link"}} >{{name}}</li>
     {{/each}}
     </ul>
+  </script>
+
+
+
+  <!-- CONTENT -->
+
+  <script type="text/x-handlebars" data-template-name="top-content" >
+    {{name}}
+  </script>
+  <script type="text/x-handlebars" data-template-name="about-content" >
+    <div class="body">
+      {{#each copy.body}}
+        {{value}}
+        <br>
+      {{/each}}
+    </div>
+  </script>
+  <script type="text/x-handlebars" data-template-name="formula-content" >
+    {{name}}
+  </script>
+  <script type="text/x-handlebars" data-template-name="team-content" >
+    {{name}}
+  </script>
+  <script type="text/x-handlebars" data-template-name="opportunities-content" >
+    {{name}}
+  </script>
+  <script type="text/x-handlebars" data-template-name="contact-content" >
+    {{name}}
   </script>
 
 
@@ -94,8 +122,8 @@
             // -the rest managed by require.js 
             // -or all minified into one script?
             insertScripts:[
-                        "app",
-                        "copy"
+                        "copy",
+                        "app"
                         ],
 
             generateScripts:function(){
@@ -128,6 +156,7 @@
 
 
   <script type="text/javascript" >
+
     $(document).ready(function(){
 
       TopView.appendTo("#container");

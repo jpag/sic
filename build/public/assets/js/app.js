@@ -10,20 +10,16 @@ var NavView = Em.View.create({
 		{name:"Opportunities" , link:OpportunitiesView },
 		{name:"Contact" , link:ContactView }
 	],
-
-	init:function(){
-		this._super();
-	},
-
+	/*init:function(){ this._super();},*/
+	
 	didInsertElement:function(){
 		$(".navigation-item").click(this.itemClicked);
-		
 		resizeAll();
 
 	},
 
 	itemClicked:function(e){
-		Debug.trace(' ITEM CLICKED ');
+		Debug.trace(' ITEM CLICKED ' + $(this).data("link") );
 	},
 
 	scrollEvent:function(e, delta){
@@ -37,34 +33,38 @@ var NavView = Em.View.create({
 	resize:function(obj){
 		var navcoordY = (TopView.$().height()-NavView.$().height());
 
-		var pos = ($(window).scrollTop() > navcoordY )? 'fixed' : 'absolute';
-		var top = ($(window).scrollTop() > navcoordY )? 0 :  TopView.$().height()-NavView.$().height() ;
+		var belowFold = ($(window).scrollTop() > navcoordY )? true : false; 
+
+		var pos = (belowFold == true )? 'fixed' : 'absolute';
+		var top = (belowFold == true )? 0 :  TopView.$().height()-NavView.$().height() ;
 		var left = (obj.width - NavView.$().width())/2;
 
-		
 		NavView.$().css({
 			'position':pos,
 			'top':top,
 			'left':left
-		})
+		});
+		
 	}
-
 })
 
 var TopView = Em.View.create({
 	templateName:"container-template",
 	classNames:["top", "container"],
-	
-	childView: Em.View.create({
+		
+	childView:Em.View.extend({
+		templateName:"top-content",
+		name:"TOP INSERTED",
+		
+		didInsertElement:function(){
+			Debug.trace(' I GOT INSERTED ' );
+		}
 
-	})
+	}),
 
-	init:function(){
- 		this._super();
-  	},
-  
-  	didInsertElement:function(){
-    	resizeAll();
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
+  		resizeAll();
   	},
 
   	resize:function(obj){
@@ -80,12 +80,20 @@ var TopView = Em.View.create({
 var AboutView = Em.View.create({
 	templateName:"container-template",
 	classNames:["about", "container"],
-	
-	init:function(){
- 		this._super();
-  	},
-  
-  	didInsertElement:function(){
+	copy:copy.about,
+
+	childView:Em.View.extend({
+		templateName:"about-content",
+		name:"ABOUT",
+		
+		didInsertElement:function(){
+			
+		}
+
+	}),
+
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
     	//Debug.trace(' ABOUT SIC ADDED complete ' );
   	},
 
@@ -100,11 +108,17 @@ var FormulasView = Em.View.create({
 	templateName:"container-template",
 	classNames:["formulas", "container"],
 	
-	init:function(){
- 		this._super();
-  	},
-  
-  	didInsertElement:function(){
+	childView:Em.View.extend({
+		templateName:"formula-content",
+		name:"Formulas",
+		
+		didInsertElement:function(){
+		
+		}
+	}),
+
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
     	
   	},
 
@@ -118,11 +132,18 @@ var TeamView = Em.View.create({
 	templateName:"container-template",
 	classNames:["team", "container"],
 	
-	init:function(){
- 		this._super();
-  	},
-  
-  	didInsertElement:function(){
+	childView:Em.View.extend({
+		templateName:"team-content",
+		name:"TEAM",
+		
+		didInsertElement:function(){
+			
+		}
+
+	}),
+
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
     	
   	},
 
@@ -136,11 +157,18 @@ var OpportunitiesView = Em.View.create({
 	templateName:"container-template",
 	classNames:["opportunities", "container"],
 	
-	init:function(){
- 		this._super();
-  	},
-  
-  	didInsertElement:function(){
+	childView:Em.View.extend({
+		templateName:"opportunities-content",
+		name:"Opportunities",
+		
+		didInsertElement:function(){
+			
+		}
+
+	}),
+
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
     
   	},
 
@@ -154,11 +182,18 @@ var ContactView = Em.View.create({
 	templateName:"container-template",
 	classNames:["contact", "container"],
 	
-	init:function(){
- 		this._super();
-  	},
-  
-  	didInsertElement:function(){
+	childView:Em.View.extend({
+		templateName:"contact-content",
+		name:"CONTACT",
+		
+		didInsertElement:function(){
+			
+		}
+
+	}),
+
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
     
   	},
 
