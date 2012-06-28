@@ -50,9 +50,13 @@
   <script type="text/x-handlebars" data-template-name="about-content" >
     <div class="body">
       {{#each copy.body}}
-        {{value}}
+        {{this}}
         <br>
       {{/each}}
+    </div>
+    <div id="twitter-container">
+      <!-- load last tweet -->
+      <!-- tweet button follow -->
     </div>
   </script>
   <script type="text/x-handlebars" data-template-name="formula-content" >

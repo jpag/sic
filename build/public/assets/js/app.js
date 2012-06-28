@@ -55,13 +55,8 @@ var TopView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"top-content",
 		name:"TOP INSERTED",
-		
-		didInsertElement:function(){
-			Debug.trace(' I GOT INSERTED ' );
-		}
-
+		copy:copy.main
 	}),
-
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
   		resizeAll();
@@ -80,28 +75,18 @@ var TopView = Em.View.create({
 var AboutView = Em.View.create({
 	templateName:"container-template",
 	classNames:["about", "container"],
-	copy:copy.about,
-
+	
 	childView:Em.View.extend({
 		templateName:"about-content",
 		name:"ABOUT",
-		
-		didInsertElement:function(){
-			
-		}
-
+		copy:copy.about
 	}),
 
 	didInsertElement:function(){
-		var child = this.childView.create().appendTo( this.$('.content') );
-    	//Debug.trace(' ABOUT SIC ADDED complete ' );
+		child = this.childView.create().appendTo( this.$('.content') );
   	},
 
-  	resize:function(obj){
-  		
-  		
-  	}
-  
+  	resize:function(obj){}
 });
 
 var FormulasView = Em.View.create({
@@ -111,21 +96,14 @@ var FormulasView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"formula-content",
 		name:"Formulas",
-		
-		didInsertElement:function(){
-		
-		}
+		copy:copy.formula
 	}),
 
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
-    	
   	},
 
-  	resize:function(obj){
-  		
-  		
-  	}
+  	resize:function(obj){}
 });
 
 var TeamView = Em.View.create({
@@ -135,22 +113,14 @@ var TeamView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"team-content",
 		name:"TEAM",
-		
-		didInsertElement:function(){
-			
-		}
-
+		copy:copy.team
 	}),
 
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
     	
   	},
-
-  	resize:function(obj){
-  		
-  		
-  	}
+  	resize:function(obj){}
 });
 
 var OpportunitiesView = Em.View.create({
@@ -160,22 +130,13 @@ var OpportunitiesView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"opportunities-content",
 		name:"Opportunities",
-		
-		didInsertElement:function(){
-			
-		}
-
+		copy:copy.opportunities
 	}),
 
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
-    
   	},
-
-  	resize:function(obj){
-  		
-  		
-  	}
+  	resize:function(obj){}
 });
 
 var ContactView = Em.View.create({
@@ -185,21 +146,13 @@ var ContactView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"contact-content",
 		name:"CONTACT",
-		
-		didInsertElement:function(){
-			
-		}
-
+		copy:copy.contact
 	}),
 
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
     
   	},
-
-  	resize:function(obj){
-  		
-  		
-  	}
+  	resize:function(obj){}
 });
 
