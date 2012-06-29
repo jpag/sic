@@ -35,7 +35,7 @@
   <script type="text/x-handlebars" data-template-name="nav-template" >
     <ul>
     {{#each items}}
-      <li class="navigation-item" {{bindAttr data-link="link"}} >{{name}}</li>
+      <li class="navigation-item" {{bindAttr data-link="id"}} >{{name}}</li>
     {{/each}}
     </ul>
   </script>
@@ -45,8 +45,8 @@
   <!-- CONTENT -->
 
   <script type="text/x-handlebars" data-template-name="top-content" >
-    {{name}}
   </script>
+
   <script type="text/x-handlebars" data-template-name="about-content" >
     <div class="body">
       {{#each copy.body}}
@@ -55,13 +55,33 @@
       {{/each}}
     </div>
     <div id="twitter-container">
-      <!-- load last tweet -->
-      <!-- tweet button follow -->
+      <div class="title">
+        {{copy.twitter.title}}
+      </div>
+      <div class="twitter-body">
+        {{tweet}}
+      </div>
+      <div class="bottom">
+        <span>@{{copy.twitter.account}}</span>
+        <span>{{tweetTime}}</span>
+      </div>
     </div>
   </script>
+
   <script type="text/x-handlebars" data-template-name="formula-content" >
-    {{name}}
+    <div id="formula-graphic" ></div>
+    <div id="formula-content">
+      <div class="title">{{copy.title}}</div>
+      <div class="body">{{copy.body}}</div>
+      <ul class="bulletpoints">
+        {{#each copy.bulletpoints}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
   </script>
+
+
   <script type="text/x-handlebars" data-template-name="team-content" >
     {{name}}
   </script>

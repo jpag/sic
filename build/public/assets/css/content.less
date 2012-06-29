@@ -1,4 +1,5 @@
 @defaultHeight:500px;
+@topMargin:75px;
 
 .container{
 	width:100%;
@@ -23,20 +24,78 @@
 	background-color: #d7d7d7;
 	height:@defaultHeight;
 
+	@aboutBodyWidth:635px;
+	@marginBetween:20px;
+
+	.body, #twitter-container{
+		margin-top:@topMargin;
+	}
+
 	.body{
-		width:400px;
-		position:relative;
-		float:left;
+		width:@aboutBodyWidth;
+		margin-right:@marginBetween;
+		.floatLeft();
 	}
 
 	#twitter-container{
-		
+		width:@siteWidth - (@aboutBodyWidth+@marginBetween);
+		.floatLeft();
+
+		.title{
+			padding-bottom: 10px;
+		}
+		.twitter-body{
+			padding-bottom:10px;
+		}
+		.bottom{
+			padding-bottom:10px;	
+		}
 	}
 }
 
 .formulas{
 	background: #253354;
 	height:@defaultHeight;
+	color:#FFFFFF;
+
+	@graphicWidth:465px;
+	@marginBetween:20px;
+
+	#formula-graphic, #formula-content{
+		margin-top:@topMargin;
+	}
+
+	#formula-graphic{
+		width:@graphicWidth;
+		.floatLeft(200px); 
+		background:RGBA(10,10,10,.2);
+		margin-right:@marginBetween;
+	}
+	#formula-content{
+		width:@siteWidth - (@graphicWidth+@marginBetween);
+		.floatLeft;
+
+		.body{
+			margin-bottom:10px;
+		}
+
+		//http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
+		ul{
+			width:@siteWidth - (@graphicWidth+@marginBetween);
+			margin-bottom:20px;
+			overflow:hidden;
+			border-top:1px solid #ccc;
+		}
+		/* 2 col */
+		li{
+			line-height:1.5em;
+			border-bottom:1px solid #ccc;
+			float:left;
+			display:inline;
+		 	width:50%;
+		 } 
+	}
+
 }
 
 .team{

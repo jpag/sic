@@ -47,10 +47,15 @@ a:hover{color:#036;}
 img{border:0px;overflow:hidden;}
 .container{width:100%;}.container .content{height:100%;width:1010px;position:relative;margin:auto;background-color:rgba(255, 255, 255, 0.1);}
 .top{background-color:#79a5cc;height:100%;}
-.about{background-color:#d7d7d7;height:500px;}
-.formulas{background:#253354;height:500px;}
+.about{background-color:#d7d7d7;height:500px;}.about .body,.about #twitter-container{margin-top:75px;}
+.about .body{width:635px;margin-right:20px;height:100%;position:relative;float:left;}
+.about #twitter-container{width:355px;height:100%;position:relative;float:left;}.about #twitter-container .title{padding-bottom:10px;}
+.about #twitter-container .body{padding-bottom:10px;}
+.about #twitter-container .bottom{padding-bottom:10px;}
+.formulas{background:#253354;height:500px;color:#FFFFFF;}.formulas #formula-graphic{width:465px;height:100%;position:relative;float:left;}
+.formulas #formula-content{width:525px;height:100%;position:relative;float:left;}
 .team{background:#1e1e1e;height:500px;}
-.opportunities{background-color:#d7d7d7;}
+.opportunities{background-color:#d7d7d7;height:500px;}
 .contact{height:600px;}
 .navigation{width:1010px;height:50px;margin:auto;background-color:#FFFFFF;border:1px solid #BBB;}.navigation ul{height:50px;}
 .navigation ul,.navigation li{list-style:none;height:20px;margin:0px;}
