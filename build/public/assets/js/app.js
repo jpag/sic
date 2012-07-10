@@ -1,21 +1,71 @@
+
 var TopView = Em.View.create({
 	templateName:"container-template",
 	classNames:["top", "container"],
-		
-	childView:Em.View.extend({
+	
+	bkgd:{w:900, h:650},
+
+	imgBkgd:function(){
+		return global.assets()+'images/bkgds/main-bkgd.jpg';
+  	},
+	
+  	childView:Em.View.extend({
 		templateName:"top-content",
-		copy:copy.main
+		classNames:"top-content",
+		copy:copy.main,
+		formulas:[
+	  		{title:"formula", number:1},
+	  		{title:"formula", number:2},
+	  		{title:"formula", number:3}
+  		],
+
+		didInsertElement:function(){
+			resizeAll();
+		}
 	}),
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
+  		//resizeAll();
+  		TopView.$().prepend('<img id="bkgd" src="'+this.imgBkgd()+'" style="display:none;" onload="TopView.bkgdLoaded();" />')
+  	},
+
+  	bkgdLoaded:function(){
+  		TopView.bkgd.w = TopView.$('#bkgd').width();
+  		TopView.bkgd.h = TopView.$('#bkgd').height();
+  		TopView.$('#bkgd').fadeIn();
+
   		resizeAll();
   	},
 
   	resize:function(obj){
-  		
+  		var h = (obj.height < global.minHeight )? global.minHeight : obj.height ;
+
+
+
   		TopView.$().css({
-  				"height":obj.height
+  				"height":h
   		})
+  		
+  		$(".top-content").css({
+  			"top":Math.round( h*.15 )
+  		})
+
+  		var windowRatio = obj.width/h;
+  		var bkgdRatio = TopView.bkgd.w/TopView.bkgd.h
+
+  		var th = obj.height;
+  		var tw = bkgdRatio*th;
+  		
+  		if( obj.width > tw ){
+  		 	tw = obj.width;
+  		 	th = 1/bkgdRatio*tw;
+  		 }
+
+  		 TopView.$('#bkgd').css({
+  		 	"height": Math.round(th),
+  		 	"width" : Math.round(tw)
+  		 })
+
 
   	}
   
@@ -126,6 +176,44 @@ var ContactView = Em.View.create({
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
     
+  	},
+  	resize:function(obj){}
+});
+
+
+
+var FooterView = Em.View.create({
+	templateName:"container-template",
+	classNames:["footer", "container"],
+	
+	childView:Em.View.extend({
+		templateName:"footer-content",
+		name:"FOOTER",
+		copy:copy.footer
+	}),
+
+	didInsertElement:function(){
+		var child = this.childView.create().appendTo( this.$('.content') );
+    	
+		/*
+		 <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+      	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+      	<div class="fb-like" data-href="http://www.google.com" data-send="false" data-width="200" data-show-faces="false"></div>
+
+      	<!-- Place this tag where you want the +1 button to render -->
+      	<g:plusone size="small" annotation="inline"></g:plusone>
+
+      	<!-- Place this render call where appropriate -->
+      	<script type="text/javascript">
+        (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+      	</script>
+      */
+
   	},
   	resize:function(obj){}
 });

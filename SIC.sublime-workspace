@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"text",
+				"text-align"
+			],
+			[
+				"appen",
+				"appendTo"
+			],
+			[
+				"margin",
+				"margin-right"
+			],
+			[
+				"TisaOT",
+				"TisaOT-Bold"
+			],
+			[
+				"backgoun",
+				"background-repeat"
+			],
+			[
+				"res",
+				"resizeAll"
+			],
+			[
+				"bind",
+				"bindAttr"
+			],
+			[
+				"background",
+				"background-image"
+			],
+			[
 				"local",
 				"localhost"
 			],
@@ -71,24 +103,7 @@
 			"file": "README.md",
 			"settings":
 			{
-				"buffer_size": 895,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "build/public/assets/js/copy.js",
-			"settings":
-			{
-				"buffer_size": 4682,
-				"line_ending": "Unix",
-				"name": "var copy = {"
-			}
-		},
-		{
-			"file": "build/public/assets/js/app.js",
-			"settings":
-			{
-				"buffer_size": 3413,
+				"buffer_size": 384,
 				"line_ending": "Unix"
 			}
 		},
@@ -96,15 +111,15 @@
 			"file": "build/public/index.html",
 			"settings":
 			{
-				"buffer_size": 5740,
+				"buffer_size": 7183,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "build/public/assets/js/debugger.js",
+			"file": "build/public/assets/js/app.js",
 			"settings":
 			{
-				"buffer_size": 835,
+				"buffer_size": 7112,
 				"line_ending": "Unix"
 			}
 		},
@@ -112,7 +127,47 @@
 			"file": "build/public/assets/css/content.less",
 			"settings":
 			{
-				"buffer_size": 636,
+				"buffer_size": 3575,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/css/global.less",
+			"settings":
+			{
+				"buffer_size": 1132,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/css/defaults.less",
+			"settings":
+			{
+				"buffer_size": 870,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/css/fonts.less",
+			"settings":
+			{
+				"buffer_size": 3800,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/js/copy.js",
+			"settings":
+			{
+				"buffer_size": 4805,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/css/nav.less",
+			"settings":
+			{
+				"buffer_size": 527,
 				"line_ending": "Unix"
 			}
 		}
@@ -164,7 +219,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 494.0
+		"width": 575.0
 	},
 	"console":
 	{
@@ -181,6 +236,9 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/sic/build/public/assets/js/debugger.js",
+		"/Applications/MAMP/htdocs/sic/build/public/assets/js/copy.js",
+		"/Applications/MAMP/htdocs/sic/build/public/index.html",
 		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/sites/default/new.settings.php",
 		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/sites/default/settings.php",
 		"/Applications/MAMP/htdocs/jpgary/trunk/public/index.html",
@@ -196,9 +254,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"fonts.less",
 			""
 		]
 	},
@@ -207,6 +266,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"darkBlueGradient",
+			"formulas",
+			"resizeAll",
+			"bindattr",
+			"assets",
+			"?",
+			"'Lato-",
 			"container",
 			"field-label",
 			"windows\\temp",
@@ -251,6 +317,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"'../fonts/lato/Lato-"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -261,7 +328,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -269,15 +336,15 @@
 					"file": "README.md",
 					"settings":
 					{
-						"buffer_size": 895,
+						"buffer_size": 384,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								789,
-								789
+								21,
+								21
 							]
 						],
 						"settings":
@@ -295,76 +362,18 @@
 				},
 				{
 					"buffer": 1,
-					"file": "build/public/assets/js/copy.js",
-					"settings":
-					{
-						"buffer_size": 4682,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3474,
-								3474
-							]
-						],
-						"settings":
-						{
-							"auto_name": "var copy = {",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 17.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "build/public/assets/js/app.js",
-					"settings":
-					{
-						"buffer_size": 3413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2079,
-								2079
-							]
-						],
-						"settings":
-						{
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "build/public/index.html",
 					"settings":
 					{
-						"buffer_size": 5740,
+						"buffer_size": 7183,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1723,
-								1723
+								3140,
+								3140
 							]
 						],
 						"settings":
@@ -376,25 +385,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 406.0,
+						"translation.y": 1066.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "build/public/assets/js/debugger.js",
+					"buffer": 2,
+					"file": "build/public/assets/js/app.js",
 					"settings":
 					{
-						"buffer_size": 835,
+						"buffer_size": 7112,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								835,
-								835
+								5399,
+								5399
 							]
 						],
 						"settings":
@@ -405,6 +414,65 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
+						"translation.y": 2427.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "build/public/assets/css/content.less",
+					"settings":
+					{
+						"buffer_size": 3575,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								174,
+								174
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "build/public/assets/css/global.less",
+					"settings":
+					{
+						"buffer_size": 1132,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								103,
+								113
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -412,18 +480,101 @@
 				},
 				{
 					"buffer": 5,
-					"file": "build/public/assets/css/content.less",
+					"file": "build/public/assets/css/defaults.less",
 					"settings":
 					{
-						"buffer_size": 636,
+						"buffer_size": 870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								413,
-								413
+								142,
+								161
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "build/public/assets/css/fonts.less",
+					"settings":
+					{
+						"buffer_size": 3800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3690,
+								3690
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LESS/LESS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 700.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "build/public/assets/js/copy.js",
+					"settings":
+					{
+						"buffer_size": 4805,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4762,
+								4765
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 536.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "build/public/assets/css/nav.less",
+					"settings":
+					{
+						"buffer_size": 527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								300,
+								300
 							]
 						],
 						"settings":
@@ -487,6 +638,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"nav.",
+				"build/public/assets/css/nav.less"
+			],
+			[
+				"copy",
+				"build/public/assets/js/copy.js"
+			],
+			[
+				"debug",
+				"build/public/assets/js/debugger.js"
+			],
 			[
 				"cont",
 				"build/public/assets/css/content.less"

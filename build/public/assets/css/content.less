@@ -3,6 +3,7 @@
 
 .container{
 	width:100%;
+	position:relative;
 
 	.content{
 		height:100%;
@@ -10,14 +11,102 @@
 		position: relative;
 		margin:auto;
 
-		background-color:RGBA(255,255,255,.1); /* just so we can see it for now */
+		//background-color:RGBA(255,255,255,.1); /* just so we can see it for now */
 	}
 }
 
 
 .top{
-	background-color:#79a5cc;
-	height:100%;
+	overflow:hidden;
+	background-color:#a28342;
+	// background-image:url("../images/bkgds/main-bkgd.jpg");
+	// background-repeat:no-repeat;
+	//width:auto;
+	//height:100%;
+	.top-content{
+		position:relative;
+	}
+
+	#bkgd{
+		position: absolute;
+		top:0px;
+		left:0px;
+	}
+
+	#logo{
+		width:202px;
+		height:200px;
+		background-image: url("../images/graphics/main-logo.png");
+		position: relative;
+		margin:auto;
+	}
+	.title{
+		.font-title();
+		text-align: center;
+		margin: auto;
+		position: relative;
+		margin-top:30px;
+		margin-bottom:30px;
+
+	}
+
+	#stars{
+		background-image:url("../images/graphics/main-stars.png");
+		width:77px;
+		height:13px;
+		position: relative;
+		margin:auto;
+		padding-top:10px;
+		background-repeat: no-repeat;
+	}
+
+	@circleDiameter:110px;
+	@circleBorder: 2px;
+	@marginright:140px;
+
+	#formulas{
+		margin-top:30px;
+		position: relative;
+		width:(@circleDiameter+@marginright+@circleBorder*2)*3;
+		height: @circleDiameter+(@circleBorder*2);
+		overflow: hidden;
+		left:(@siteWidth - ( (@circleDiameter+@marginright+@circleBorder*2)*3 - @marginright) )/2;
+	}
+
+	.formula{
+		width:@circleDiameter;
+		height:@circleDiameter;
+		-webkit-border-radius: @circleDiameter/2;
+		border-radius: @circleDiameter/2;
+		background:RGBA(255,255,255,.15);
+		border:@circleBorder #FFFFFF solid;
+		text-align: center;
+		color:#FFFFFF;
+		display:inline;
+		float:left;
+		margin-right: @marginright;
+		cursor: pointer;
+
+		
+		.formula-container{
+			margin-top:25px;
+			font-size:10px;
+			.font-tisa-bold();
+		}
+
+		.formula-number{
+			font-size:50px;
+			.font-tisa-bold();
+			position: relative;
+			top:-10px;
+		}
+	}
+
+	.formula:hover{
+		background-color:RGBA(255,255,255,.75);
+		color:RGBA(0,0,0,.4);
+	}
+
 }
 
 .about{
@@ -54,12 +143,13 @@
 }
 
 .formulas{
-	background: #253354;
+	.darkBlueGradient();
 	height:@defaultHeight;
 	color:#FFFFFF;
 
 	@graphicWidth:465px;
 	@marginBetween:20px;
+
 
 	#formula-graphic, #formula-content{
 		margin-top:@topMargin;
@@ -67,7 +157,10 @@
 
 	#formula-graphic{
 		width:@graphicWidth;
-		.floatLeft(200px); 
+		.floatLeft(200px);
+		
+		height: 200px;
+
 		background:RGBA(10,10,10,.2);
 		margin-right:@marginBetween;
 	}
@@ -99,7 +192,7 @@
 }
 
 .team{
-	background: #1e1e1e;
+	.darkBlueGradient();
 	height: @defaultHeight;
 }
 
@@ -110,4 +203,20 @@
 
 .contact{
 	height: 600px;
+}
+
+.footer{
+	background-color:#000000;
+	height:350px;
+
+	#footer-left{
+		float:left;
+		width:50%;
+		text-align: left;
+	}
+	#footer-right{
+		float:right;
+		width:50%;
+		text-align: right;
+	}
 }

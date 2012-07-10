@@ -8,15 +8,30 @@
 
 @siteWidth: 1010px;
 
+@import 'fonts';
 @import 'defaults';
+
+html, body, div, span{
+  .font-paragraph();
+}
+
 @import 'content';
 @import 'nav';
 
 //Z-INDEXES:
+.top #bkgd{
+  z-index: 5;
+}
 
+.top .content{
+  z-index: 10;
+}
 .navigation{
   z-index: 100;
 }
+
+
+
 
 /*
 @siteWidth: 1024px;

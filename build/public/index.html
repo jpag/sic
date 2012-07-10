@@ -45,6 +45,19 @@
   <!-- CONTENT -->
 
   <script type="text/x-handlebars" data-template-name="top-content" >
+    <div id="logo" ></div>
+    <div class="title">{{copy.title}}</div>
+    <div id="stars" ></div>
+    <div id="formulas" >
+      {{#each formulas}}
+      <div class="formula" >
+        <div class="formula-container">
+          {{title}}
+          <div class="formula-number">{{number}}</div>
+        </div>
+      </div>
+      {{/each}}
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="about-content" >
@@ -91,6 +104,14 @@
   <script type="text/x-handlebars" data-template-name="contact-content" >
     {{name}}
   </script>
+
+  <script type="text/x-handlebars" data-template-name="footer-content" >
+    <div id="footer-left">{{copy.left}}</div>
+    <div id="footer-right">
+      
+     </div>
+  </script>
+
 
 
 
@@ -142,6 +163,8 @@
               appid:""
             },
 
+            minHeight:550,
+
             //Should be one script on start:
             // -the rest managed by require.js 
             // -or all minified into one script?
@@ -186,10 +209,10 @@
       TopView.appendTo("#container");
       AboutView.appendTo("#container");
       FormulasView.appendTo("#container");
-      TeamView.appendTo("#container");
       OpportunitiesView.appendTo("#container");
+      TeamView.appendTo("#container");
       ContactView.appendTo("#container");
-      
+      FooterView.appendTo("#container");
       NavView.appendTo("#container");
 
     });
@@ -219,6 +242,19 @@
         NavView.resize(obj);
       };
   </script>
+
+
+  <!-- FACEBOOK LIKE BUTTON -->
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  //&appId=313869242028565
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
 
 
 </body>
