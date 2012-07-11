@@ -85,7 +85,12 @@
     <div id="formula-graphic" ></div>
     <div id="formula-content">
       <div class="title">{{copy.title}}</div>
-      <div class="body">{{copy.body}}</div>
+      <div class="body">
+        {{#each copy.body}}
+          {{this}}
+          <br>
+        {{/each}}
+      </div>
       <ul class="bulletpoints">
         {{#each copy.bulletpoints}}
           <li>{{this}}</li>
@@ -96,7 +101,23 @@
 
 
   <script type="text/x-handlebars" data-template-name="team-content" >
-    {{name}}
+    <div class="title">{{copy.title}}</div>
+    <div class="body">
+      {{#each copy.body}}
+        {{this}}
+        <br>
+      {{/each}}
+    </div>
+    <ul id="members">
+    {{#each copy.members}}
+      <li>
+        <div class="member-name" >{{name}}</div>
+        <div class="member-title">{{title}}</div>
+        <div class="member-other">{{phone}}</div>
+        <div class="member-other"><a {{bindAttr href=email }} >{{email}}</a></div>
+      </li>
+    {{/each}}
+    </ul>
   </script>
   <script type="text/x-handlebars" data-template-name="opportunities-content" >
     {{name}}

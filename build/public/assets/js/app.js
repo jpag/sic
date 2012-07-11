@@ -137,7 +137,18 @@ var TeamView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"team-content",
 		name:"TEAM",
-		copy:copy.team
+		copy:copy.team,
+
+		didInsertElement:function(){
+			var count = copy.team.members.length;
+			var margin = 10;
+
+			this.$("#members li").css({
+				"width":(this.$("#members").width()/count)-margin*2,
+				"margin-right":margin,
+				"margin-left":margin
+			})
+		}
 	}),
 
 	didInsertElement:function(){

@@ -194,6 +194,57 @@
 .team{
 	.darkBlueGradient();
 	height: @defaultHeight;
+	color:#ffffff;
+	.font-paragraph-thin();
+	padding-top:75px;
+	padding-bottom:75px;
+
+	@paddingBetween:35px;
+
+	.title{
+		font-size: 38px;
+		padding-bottom:@paddingBetween;
+	}
+	.body{
+		padding-bottom:@paddingBetween;
+	}
+
+	@ul-padding:10px;
+
+	ul{
+		position: relative;
+		left:-@ul-padding;
+	}
+
+	li{
+		float:left;
+		display:inline;
+		position: relative;
+		margin-left:@ul-padding;
+		margin-right:@ul-padding;
+		width:200px;
+
+		a{
+			color:#FFFFFF;
+			text-decoration: underline;
+		}
+
+		a:hover{
+			color:#CCCCCC;
+			text-decoration: none;
+		}
+	
+		.member-name{
+			font-family:'Lato-Bold';
+		}
+		.member-name, .member-other{
+			padding-bottom:5px;
+		}
+		.member-title{
+			font-family:'Lato-LightItalic';
+			padding-bottom:10px;
+		}
+	}
 }
 
 .opportunities{
