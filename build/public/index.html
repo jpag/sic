@@ -63,8 +63,7 @@
   <script type="text/x-handlebars" data-template-name="about-content" >
     <div class="body">
       {{#each copy.body}}
-        {{this}}
-        <br>
+        <span>{{this}}</span>
       {{/each}}
     </div>
     <div id="twitter-container">
@@ -87,8 +86,7 @@
       <div class="title">{{copy.title}}</div>
       <div class="body">
         {{#each copy.body}}
-          {{this}}
-          <br>
+          <span>{{this}}</span>
         {{/each}}
       </div>
       <ul class="bulletpoints">
@@ -100,12 +98,16 @@
   </script>
 
 
+  <script type="text/x-handlebars" data-template-name="opportunities-content" >
+    {{name}}
+  </script>
+  
+
   <script type="text/x-handlebars" data-template-name="team-content" >
     <div class="title">{{copy.title}}</div>
     <div class="body">
       {{#each copy.body}}
-        {{this}}
-        <br>
+        <span>{{this}}</span>
       {{/each}}
     </div>
     <ul id="members">
@@ -114,16 +116,37 @@
         <div class="member-name" >{{name}}</div>
         <div class="member-title">{{title}}</div>
         <div class="member-other">{{phone}}</div>
-        <div class="member-other"><a {{bindAttr href=email }} >{{email}}</a></div>
+        <div class="member-other btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
       </li>
     {{/each}}
     </ul>
   </script>
-  <script type="text/x-handlebars" data-template-name="opportunities-content" >
-    {{name}}
-  </script>
+
   <script type="text/x-handlebars" data-template-name="contact-content" >
-    {{name}}
+    <div class="title">{{copy.title}}</div>
+    <ul id="locations">
+    {{#each copy.locations}}
+      <li>
+        <div class="location-name">{{name}}</div>
+        <div class="location-other" >{{title}}</div>
+        <div class="location-other">{{address}}</div>
+        <div class="location-other">{{city}}</div>
+        <div class="location-other topspacing">{{phone}}</div>
+        <div class="location-other btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
+        <div class="location-onmap btn" onclick="ContactView.centerMap(this);" {{bindAttr data-lat="lat"}} {{bindAttr data-lng="lng"}} >Show on Map</div>
+      </li>
+    {{/each}}
+    </ul>
+
+    <div id="inquiries" >
+      <div class="title" >{{copy.inquries.title}}</div>
+      <ul>
+        {{#each copy.inquries.emails}}
+        <li {{bindAttr data-email="this" }} class="btn" onclick="email(this);" ><a >{{this}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+
   </script>
 
   <script type="text/x-handlebars" data-template-name="footer-content" >
@@ -140,6 +163,8 @@
   <script src="assets/js/libs/jquery-1.7.2.min.js"></script>
   <script src="assets/js/libs/jquery.mousewheel.js"></script>
   <script src="assets/js/libs/ember-0.9.8.1.min.js"></script>
+  <!-- google maps -->
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
   
   <!-- 
@@ -216,7 +241,6 @@
       }
     }
 
-
     global.generateScripts();
 
   </script>
@@ -224,7 +248,8 @@
 
 
   <script type="text/javascript" >
-
+    var gMap;
+    
     $(document).ready(function(){
 
       TopView.appendTo("#container");
@@ -261,7 +286,11 @@
         ContactView.resize(obj);
 
         NavView.resize(obj);
-      };
+    };
+
+    function email(t){
+      window.open("mailto:"+$(t).data('email') );
+    }
   </script>
 
 

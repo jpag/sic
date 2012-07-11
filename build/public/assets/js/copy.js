@@ -93,22 +93,41 @@ var copy = {
 			active:"On Map",
 			notactive:"Show on Map"
 		},
+		mapStates:{
+			on:"On map",
+			off:"Show on map"
+		},
+		//determine GPS by: http://itouchmap.com/latlong.html
 		locations:[
 			{
-				city: "Washington D.C.",
+				name:"Washington D.C.",
 				title: "SIC Group HQ",
-				address1: "1700 K Street NW, 00000,",
-				address2:"Washington D.C.",
+				address: "1700 K Street NW, 00000,",
+				city: "Washington D.C.",
 				phone:"+1 894 455 4548",
-				email:"sic.dc@sicgroupllc.com"
+				email:"sic.dc@sicgroupllc.com",
+				lat:38.895112,
+				lng:-77.036366
 			},
 			{
+				name:"Affiliated offices",
+				title:"Shabakat Corporation | SIC Group",
+				address:"XXXXXXXXX",
 				city:"Tripoli, Libya",
-				title:"Affiliated offices",
-				address1:"Shabakat Corporation | SIC Group",
-				address2:"XXXXXXXXXXXXXXXXXXX",
 				phone:"+1 894 455 4548",
-				email:"sic.dc@sicgroupllc.com"
+				email:"sic.dc@sicgroupllc.com",
+				lat:32.876174,
+				lng:13.187507
+			},
+			{
+				name:"Affiliated offices",
+				title:"Shabakat Corporation | SIC Group",
+				address:"XXXXXXXXX",
+				city:"Cairo, Egypt",
+				phone:"+1 894 455 4548",
+				email:"sic.dc@sicgroupllc.com",
+				lat:30.044420,
+				lng:31.235712
 			}
 		],
 		inquries:{
@@ -116,9 +135,10 @@ var copy = {
 			emails:[
 				"info@sicgroupllc.com","careers@sicgroup.com","enquires@sicgroup.com","support@sicgroup.com"
 			]
-		}
+		},
+
 	},
 	footer:{
-		left:"2012 - SIC Group"
+		left:"© 2012 - SIC Group"
 	}
 }

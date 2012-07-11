@@ -1,5 +1,10 @@
 @defaultHeight:500px;
 @topMargin:75px;
+@section-paddingTop:75px;
+@text-sections-paddingBetween:35px;
+@ul-padding:10px;
+@ul-padding-location:20px;
+@location-width:120px;
 
 .container{
 	width:100%;
@@ -13,6 +18,14 @@
 
 		//background-color:RGBA(255,255,255,.1); /* just so we can see it for now */
 	}
+}
+
+.body{
+	//spacing between paragraphs
+	span{
+			display:block;
+			padding-bottom:15px;
+		}
 }
 
 
@@ -110,7 +123,7 @@
 }
 
 .about{
-	background-color: #d7d7d7;
+	background-color: #f8f8f8;
 	height:@defaultHeight;
 
 	@aboutBodyWidth:635px;
@@ -124,6 +137,7 @@
 		width:@aboutBodyWidth;
 		margin-right:@marginBetween;
 		.floatLeft();
+
 	}
 
 	#twitter-container{
@@ -177,15 +191,15 @@
 			width:@siteWidth - (@graphicWidth+@marginBetween);
 			margin-bottom:20px;
 			overflow:hidden;
-			border-top:1px solid #ccc;
 		}
 		/* 2 col */
 		li{
 			line-height:1.5em;
-			border-bottom:1px solid #ccc;
 			float:left;
 			display:inline;
-		 	width:50%;
+		 	width:48%;
+		 	padding:0px 1% 0px 1%;
+
 		 } 
 	}
 
@@ -196,20 +210,16 @@
 	height: @defaultHeight;
 	color:#ffffff;
 	.font-paragraph-thin();
-	padding-top:75px;
+	padding-top:@section-paddingTop;
 	padding-bottom:75px;
 
-	@paddingBetween:35px;
-
 	.title{
-		font-size: 38px;
-		padding-bottom:@paddingBetween;
+		.font-paragraph-title();
+		padding-bottom:@text-sections-paddingBetween;
 	}
 	.body{
-		padding-bottom:@paddingBetween;
+		padding-bottom:@text-sections-paddingBetween;
 	}
-
-	@ul-padding:10px;
 
 	ul{
 		position: relative;
@@ -253,12 +263,105 @@
 }
 
 .contact{
-	height: 600px;
+
+	.contact-columnTitle(){
+		font-family:'Lato-Bold';
+		font-size:14px;
+		padding-bottom: 13px;
+	}
+
+
+	height: 775px;
+	color:#0e0e0e;
+	padding-top:@section-paddingTop;
+
+	.title{
+		.font-paragraph-title();
+		padding-bottom:@text-sections-paddingBetween;
+	}
+
+	ul{
+		position: relative;
+		left: -@ul-padding-location;
+	}
+	li{
+		float:left;
+		display: inline;
+		position: relative;
+		font-size:12px;
+		margin-right: @ul-padding-location;
+		margin-left: @ul-padding-location;
+	}
+
+	.location-name{
+		.contact-columnTitle();
+	}
+	.location-other{
+		height:15px;
+	}
+
+	.topspacing{
+		padding-top:10px;
+	}
+
+	.location-onmap{
+		.font-paragraph-thin();
+		color:#c1c1c1;
+		font-size:17px;
+		height:20px;
+		width:@location-width;
+		overflow: hidden;
+		background-repeat: no-repeat;
+		background-image:url("../images/ui/mapicon.png");
+		padding-left:25px;
+		margin-top:15px;
+		background-position: 0px -21px;	
+	}
+
+	.location-onmap:hover,
+	.location-onmap.active{
+		color:#d84940;	
+		background-position: 0px 0px;	
+	}
+
+	#inquiries{
+		position: relative;
+		float:left;
+		width:175px;
+
+		.title{
+			.contact-columnTitle();
+		}
+		li{
+			display: block;
+			padding-bottom:10px;
+		}
+	}
+
+
+	a{
+		color:#090909;
+	}
+	a:hover{
+		color:#999999;
+		text-decoration: underline;
+	}
+
+
+	#gmaps-container{
+		height:420px;
+		position:absolute;
+		width:100%;
+		bottom:0px;
+		background-color: #AAAAAA;
+	}
 }
 
 .footer{
 	background-color:#000000;
 	height:350px;
+	padding-top:45px;
+	color:#FFFFFF;
 
 	#footer-left{
 		float:left;

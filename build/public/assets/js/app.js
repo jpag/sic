@@ -181,13 +181,80 @@ var ContactView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"contact-content",
 		name:"CONTACT",
-		copy:copy.contact
+		copy:copy.contact,
+		didInsertElement:function(){
+			//create google maps here.
+			ContactView.initMap(); 
+		}
+
 	}),
+
 
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
-    
   	},
+
+  	initMap:function(){
+  		this.$().append("<div id='gmaps-container' ></div>");
+  		//start on first location.
+  		var StartLatlng = new google.maps.LatLng( 
+												copy.contact.locations[0].lat,
+												copy.contact.locations[0].lng 
+												);
+  		
+  		var firstLocation = $("#locations .location-onmap")[0];
+		$(firstLocation).addClass("active").html(copy.contact.mapStates.on);	
+  		
+  		//https://developers.google.com/maps/documentation/javascript/reference
+  		var settings = {      
+  						center: StartLatlng,
+  						mapTypeId: google.maps.MapTypeId.ROADMAP,
+  						
+  						zoom: 15,
+  						maxZoom:17,
+  						minZoom:10,
+  						zoomControlOptions: {
+				     		style: google.maps.ZoomControlStyle.SMALL
+				 		},
+				 		mapTypeControl:false,
+				 		panControl:true,
+				 		//zoomControl:false,
+  		 				}    
+
+		gMap = new google.maps.Map(document.getElementById("gmaps-container"), settings);        
+
+
+		for( var m=0; m < copy.contact.locations.length; m++ ){
+			var Latlng = new google.maps.LatLng( 
+												copy.contact.locations[m].lat,
+												copy.contact.locations[m].lng 
+												);
+
+  		  	var marker = new google.maps.Marker({
+												position: Latlng,
+												map: gMap,
+												title:copy.contact.locations[m].name + ", " + copy.contact.locations[m].city   
+											});   
+
+  		}
+
+
+  	},
+
+  	centerMap:function(t){
+  		Debug.trace(' CENTER MAP');
+  		var lat = $(t).data('lat');
+  		var lng = $(t).data('lng');
+  		var LatLng = new google.maps.LatLng(lat,lng);
+  		gMap.panTo(LatLng);
+
+  		//remove all others that may have the active class:
+  		$("#locations .location-onmap").removeClass("active").html(copy.contact.mapStates.off);
+  		//add state to the current selected one.
+  		$(t).addClass("active").html(copy.contact.mapStates.on);
+
+  	},
+
   	resize:function(obj){}
 });
 
