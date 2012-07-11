@@ -74,8 +74,8 @@
         {{tweet}}
       </div>
       <div class="bottom">
-        <span>@{{copy.twitter.account}}</span>
-        <span>{{tweetTime}}</span>
+        <span id="twitter-handle">@{{copy.twitter.account}}</span>
+        <span id="twitter-time">{{tweetTime}}</span>
       </div>
     </div>
   </script>
@@ -249,7 +249,7 @@
 
   <script type="text/javascript" >
     var gMap;
-    
+
     $(document).ready(function(){
 
       TopView.appendTo("#container");

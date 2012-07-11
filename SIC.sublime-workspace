@@ -4,6 +4,38 @@
 		"selected_items":
 		[
 			[
+				"backgr",
+				"background-repeat"
+			],
+			[
+				"tw",
+				"twitter-time"
+			],
+			[
+				"first",
+				"firstLocation"
+			],
+			[
+				"lat",
+				"Latlng"
+			],
+			[
+				"on",
+				"onclick"
+			],
+			[
+				"Contact",
+				"ContactView"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"Bind",
+				"bindAttr"
+			],
+			[
 				"text",
 				"text-align"
 			],
@@ -42,10 +74,6 @@
 			[
 				"type",
 				"type-body"
-			],
-			[
-				"tw",
-				"twitterUser"
 			],
 			[
 				"up",
@@ -111,15 +139,7 @@
 			"file": "build/public/index.html",
 			"settings":
 			{
-				"buffer_size": 7183,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "build/public/assets/js/app.js",
-			"settings":
-			{
-				"buffer_size": 7112,
+				"buffer_size": 8962,
 				"line_ending": "Unix"
 			}
 		},
@@ -127,7 +147,7 @@
 			"file": "build/public/assets/css/content.less",
 			"settings":
 			{
-				"buffer_size": 3575,
+				"buffer_size": 6417,
 				"line_ending": "Unix"
 			}
 		},
@@ -135,7 +155,7 @@
 			"file": "build/public/assets/css/global.less",
 			"settings":
 			{
-				"buffer_size": 1132,
+				"buffer_size": 1121,
 				"line_ending": "Unix"
 			}
 		},
@@ -143,7 +163,7 @@
 			"file": "build/public/assets/css/defaults.less",
 			"settings":
 			{
-				"buffer_size": 870,
+				"buffer_size": 933,
 				"line_ending": "Unix"
 			}
 		},
@@ -151,15 +171,7 @@
 			"file": "build/public/assets/css/fonts.less",
 			"settings":
 			{
-				"buffer_size": 3800,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "build/public/assets/js/copy.js",
-			"settings":
-			{
-				"buffer_size": 4805,
+				"buffer_size": 4475,
 				"line_ending": "Unix"
 			}
 		},
@@ -167,7 +179,23 @@
 			"file": "build/public/assets/css/nav.less",
 			"settings":
 			{
-				"buffer_size": 527,
+				"buffer_size": 823,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/js/app.js",
+			"settings":
+			{
+				"buffer_size": 9269,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "build/public/assets/js/copy.js",
+			"settings":
+			{
+				"buffer_size": 5218,
 				"line_ending": "Unix"
 			}
 		}
@@ -219,7 +247,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 575.0
+		"width": 494.0
 	},
 	"console":
 	{
@@ -236,9 +264,9 @@
 	},
 	"file_history":
 	[
+		"/Applications/MAMP/htdocs/sic/build/public/index.html",
 		"/Applications/MAMP/htdocs/sic/build/public/assets/js/debugger.js",
 		"/Applications/MAMP/htdocs/sic/build/public/assets/js/copy.js",
-		"/Applications/MAMP/htdocs/sic/build/public/index.html",
 		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/sites/default/new.settings.php",
 		"/Applications/MAMP/htdocs/jpgary/trunk/public/content/sites/default/settings.php",
 		"/Applications/MAMP/htdocs/jpgary/trunk/public/index.html",
@@ -254,7 +282,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 93.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"fonts.less",
@@ -266,6 +294,23 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"color:",
+			"e04646",
+			"StartLatlng",
+			"gmap",
+			"email",
+			"location-width",
+			"../images/",
+			"@location-width",
+			";\n",
+			"bindAttr",
+			"paddingbetween",
+			"@paddingBetween",
+			".font-paragraph-title()",
+			".title",
+			"font-paragraph-title",
+			"75",
+			"@topMargin",
 			"darkBlueGradient",
 			"formulas",
 			"resizeAll",
@@ -328,7 +373,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -365,15 +410,15 @@
 					"file": "build/public/index.html",
 					"settings":
 					{
-						"buffer_size": 7183,
+						"buffer_size": 8962,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3140,
-								3140
+								2209,
+								2195
 							]
 						],
 						"settings":
@@ -385,54 +430,25 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1066.0,
+						"translation.y": 264.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "build/public/assets/js/app.js",
-					"settings":
-					{
-						"buffer_size": 7112,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5399,
-								5399
-							]
-						],
-						"settings":
-						{
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2427.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "build/public/assets/css/content.less",
 					"settings":
 					{
-						"buffer_size": 3575,
+						"buffer_size": 6417,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								174,
-								174
+								2907,
+								2907
 							]
 						],
 						"settings":
@@ -449,19 +465,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "build/public/assets/css/global.less",
 					"settings":
 					{
-						"buffer_size": 1132,
+						"buffer_size": 1121,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								103,
-								113
+								123,
+								123
 							]
 						],
 						"settings":
@@ -479,19 +495,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "build/public/assets/css/defaults.less",
 					"settings":
 					{
-						"buffer_size": 870,
+						"buffer_size": 933,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								142,
-								161
+								31,
+								31
 							]
 						],
 						"settings":
@@ -507,74 +523,49 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "build/public/assets/css/fonts.less",
 					"settings":
 					{
-						"buffer_size": 3800,
+						"buffer_size": 4475,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3690,
-								3690
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LESS/LESS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 700.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "build/public/assets/js/copy.js",
-					"settings":
-					{
-						"buffer_size": 4805,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4762,
-								4765
+								4421,
+								4436
 							]
 						],
 						"settings":
 						{
 							"remote_loading": false,
 							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 536.0,
+						"translation.y": 1136.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 6,
 					"file": "build/public/assets/css/nav.less",
 					"settings":
 					{
-						"buffer_size": 527,
+						"buffer_size": 823,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								300,
-								300
+								349,
+								349
 							]
 						],
 						"settings":
@@ -586,6 +577,70 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "build/public/assets/js/app.js",
+					"settings":
+					{
+						"buffer_size": 9269,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9242,
+								9242
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "build/public/assets/js/copy.js",
+					"settings":
+					{
+						"buffer_size": 5218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4214,
+								4214
+							]
+						],
+						"settings":
+						{
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 797.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -610,11 +665,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -641,6 +703,14 @@
 			[
 				"nav.",
 				"build/public/assets/css/nav.less"
+			],
+			[
+				"inde",
+				"build/public/index.html"
+			],
+			[
+				"",
+				"build/public/assets/css/content.less"
 			],
 			[
 				"copy",

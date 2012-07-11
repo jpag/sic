@@ -376,8 +376,8 @@ var NavView = Em.View.create({
 
 		NavView.$().css({
 			'position':pos,
-			'top':top,
-			'left':left
+			'top':top
+			//,'left':left
 		});
 		
 	}
