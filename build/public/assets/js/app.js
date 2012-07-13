@@ -38,22 +38,22 @@ var TopView = Em.View.create({
   	},
 
   	resize:function(obj){
-  		var h = (obj.height < global.minHeight )? global.minHeight : obj.height ;
+  		var availH = obj.height - AboutView.$().height();
 
-
+  		var h = (availH < global.minHeight )? global.minHeight : availH ;
 
   		TopView.$().css({
   				"height":h
   		})
   		
   		$(".top-content").css({
-  			"top":Math.round( h*.15 )
+  			"top":Math.round( h*.1 )
   		})
 
   		var windowRatio = obj.width/h;
   		var bkgdRatio = TopView.bkgd.w/TopView.bkgd.h
 
-  		var th = obj.height;
+  		var th = availH;
   		var tw = bkgdRatio*th;
   		
   		if( obj.width > tw ){
@@ -217,7 +217,7 @@ var ContactView = Em.View.create({
   		var settings = {      
   						center: StartLatlng,
   						mapTypeId: google.maps.MapTypeId.ROADMAP,
-  						
+  						scrollwheel:false,				
   						zoom: 15,
   						maxZoom:17,
   						minZoom:10,
@@ -374,7 +374,7 @@ var NavView = Em.View.create({
 	},
 
 	resize:function(obj){
-		var navcoordY = (TopView.$().height()-NavView.$().height());
+		var navcoordY = (TopView.$().height() - NavView.$().height() );
 
 		var belowFold = ($(window).scrollTop() > navcoordY )? true : false; 
 

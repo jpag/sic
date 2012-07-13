@@ -105,8 +105,9 @@
         <li>
           <div class="op-img" ><img {{bindAttr src="logo"}} /></div>
           <div class="op-title" >{{title}}</div>
-          <div class="op-body" >{{body}}</div>
-          
+          {{#if body}}
+            <div class="op-body" >{{body}}</div>
+          {{/if}}
           {{#if button}}
             <div class="op-button btn">{{button}}</div>
           {{/if}}
@@ -225,7 +226,7 @@
               appid:""
             },
 
-            minHeight:550,
+            minHeight:650,
 
             //Should be one script on start:
             // -the rest managed by require.js 

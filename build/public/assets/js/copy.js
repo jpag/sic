@@ -46,7 +46,7 @@ var copy = {
 			{
 				logo:"op-consult.png",
 				title:"Consultants",
-				body:"SIC Group prides itself with a broad network across the world of some of the most well known and influential subject matter experts, academics and analysts around the world. Our consultants thrives not only because of the exciting nature of the work, but also through our transparent management approach enabling a large degree of autonomy, our network of other experts in related fields to draw upon, and the general atmosphere of hard-work, pride and efficiency.",
+				//body:"SIC Group prides itself with a broad network across the world of some of the most well known and influential subject matter experts, academics and analysts around the world. Our consultants thrives not only because of the exciting nature of the work, but also through our transparent management approach enabling a large degree of autonomy, our network of other experts in related fields to draw upon, and the general atmosphere of hard-work, pride and efficiency.",
 				button:"Join the Network",
 				email:"careers@sicgroupd.com"
 			},
