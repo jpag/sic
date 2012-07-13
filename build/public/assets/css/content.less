@@ -3,6 +3,7 @@
 @section-paddingTop:75px;
 @text-sections-paddingBetween:35px;
 @ul-padding:10px;
+@ul-padding-op:30px; //opportunity column needs more space.
 @ul-padding-location:20px;
 @location-width:120px;
 
@@ -284,8 +285,91 @@
 }
 
 .opportunities{
-	background-color: #d7d7d7;
-	height: @defaultHeight;
+	background-color: #f8f8f8;
+	height: 650px;
+	.font-paragraph-thin();
+	color:#232323;
+	padding-top:@section-paddingTop;
+
+	.title{
+		.font-paragraph-title();
+		padding-bottom:@text-sections-paddingBetween;
+		color:#333333;
+	}
+	
+	ul{
+		position: relative; 
+		left:-@ul-padding-op;
+	}
+
+	li{
+		float:left;
+		display:inline;
+		position:relative;
+		margin-left:@ul-padding-op;
+		margin-right:@ul-padding-op;
+		width:276px;
+
+		text-align: center;
+
+		.op-title{
+			.font-paragraph();
+			font-size:15px;
+			padding-top:10px;
+			padding-bottom:10px
+		}
+		.op-img{
+			width:100px;
+			height:100px;
+			overflow: hidden;
+			position: relative;
+			margin:auto;
+		}
+		.op-img img{
+			position: absolute;
+			top:0px;
+			left:0px;
+		}
+		.op-img:hover img{
+			top:-100px;
+		}
+
+		.op-body{
+			font-size:13px;
+		}
+
+		.op-button{
+			color:@red-font;
+			padding:10px;
+
+			-webkit-border-radius: 4px;
+			border-radius: 4px;
+
+			border:2px solid #edeeef;
+			background-color:#FFFFFF;
+			width:150px;
+
+			position: relative;
+			margin:auto;
+
+			margin-top:@ul-padding;
+			margin-bottom:@ul-padding;
+		}
+
+		.op-button:hover{
+			background-color:@red-font;
+			color:#FFFFFF;
+		}
+		a{
+			color:#333333;
+		}
+		a:hover{
+			color:#000000;
+		}
+	}
+
+
+
 }
 
 .contact{

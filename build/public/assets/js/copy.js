@@ -37,20 +37,23 @@ var copy = {
 	opportunities:{
 		title:"Opportunities",
 		columns:[
+		//LOGO is stored in the assets/images/icons/ folder
 			{
+				logo:"op-careers.png",
 				title:"Careers",
-				body:"SIC Group offers exciting opportunities for professionals in the political and economic spectrum who wish to work with information in emerging- and frontier markets, in a dynamic and fast-phased environment that encompasses traditional values of international relations, trade and influence.",
-				button:"Apply For A Position"
+				body:"SIC Group offers exciting opportunities for professionals in the political and economic spectrum who wish to work with information in emerging- and frontier markets, in a dynamic and fast-phased environment that encompasses traditional values of international relations, trade and influence."
 			},
 			{
+				logo:"op-consult.png",
 				title:"Consultants",
 				body:"SIC Group prides itself with a broad network across the world of some of the most well known and influential subject matter experts, academics and analysts around the world. Our consultants thrives not only because of the exciting nature of the work, but also through our transparent management approach enabling a large degree of autonomy, our network of other experts in related fields to draw upon, and the general atmosphere of hard-work, pride and efficiency.",
-				button:"Join the Network"
+				button:"Join the Network",
+				email:"careers@sicgroupd.com"
 			},
 			{
+				logo:"op-partnerships.png",
 				title:"Partnerships",
-				body:"SIC Group entertains worldwide partnerships with prominent local individuals and firms, with unmatched insight and access in their area. Our partnership approach facilitates rapid mobilization and specialized subject matter expertise, wheatear it’s tribal, religious, governmental, within the business community, civil society organizations, or other.",
-				button:"Become a Partner"
+				body:"SIC Group entertains worldwide partnerships with prominent local individuals and firms, with unmatched insight and access in their area. Our partnership approach facilitates rapid mobilization and specialized subject matter expertise, wheatear it’s tribal, religious, governmental, within the business community, civil society organizations, or other."
 			}
 		]
 	},

@@ -165,7 +165,13 @@ var OpportunitiesView = Em.View.create({
 	childView:Em.View.extend({
 		templateName:"opportunities-content",
 		name:"Opportunities",
-		copy:copy.opportunities
+		copy:copy.opportunities,
+		init:function(){
+			for( var c=0; c < this.copy.columns.length; c++){
+				this.copy.columns[c].logo = global.assets() + 'images/icons/'+ this.copy.columns[c].logo;
+			}
+			this._super();
+		}
 	}),
 
 	didInsertElement:function(){
@@ -184,7 +190,9 @@ var ContactView = Em.View.create({
 		copy:copy.contact,
 		didInsertElement:function(){
 			//create google maps here.
+			
 			ContactView.initMap(); 
+
 		}
 
 	}),
@@ -314,14 +322,14 @@ var NavView = Em.View.create({
 			view:FormulasView 
 		},
 		{
-			name:"Team", 
-			id:'team',
-			view:TeamView 
-		},
-		{
 			name:"Opportunities", 
 			id:'opportunities', 
 			view:OpportunitiesView 
+		},
+		{
+			name:"Team", 
+			id:'team',
+			view:TeamView 
 		},
 		{
 			name:"Contact", 

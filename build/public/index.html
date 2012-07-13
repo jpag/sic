@@ -99,7 +99,23 @@
 
 
   <script type="text/x-handlebars" data-template-name="opportunities-content" >
-    {{name}}
+    <div class="title">{{copy.title}}</div>
+    <ul>
+      {{#each copy.columns}}
+        <li>
+          <div class="op-img" ><img {{bindAttr src="logo"}} /></div>
+          <div class="op-title" >{{title}}</div>
+          <div class="op-body" >{{body}}</div>
+          
+          {{#if button}}
+            <div class="op-button btn">{{button}}</div>
+          {{/if}}
+          {{#if email}}
+            <div class="op-email btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
   </script>
   
 
