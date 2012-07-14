@@ -190,9 +190,7 @@ var ContactView = Em.View.create({
 		copy:copy.contact,
 		didInsertElement:function(){
 			//create google maps here.
-			
 			ContactView.initMap(); 
-
 		}
 
 	}),
@@ -310,6 +308,8 @@ var NavView = Em.View.create({
 	templateName:"nav-template",
 	classNames:"navigation",
 
+	active:0,
+
 	items:[
 		//{name:"HOME" , link:TopView }
 		{	name:"SIC Group", 
@@ -341,28 +341,67 @@ var NavView = Em.View.create({
 	
 	didInsertElement:function(){
 		$(".navigation-item").click(this.itemClicked);
+		
+		this.updateNav(this.active);
 		resizeAll();
 
 	},
 
 	itemClicked:function(e){
 		Debug.trace(' ITEM CLICKED ' + $(this).data("link") );
+
+		$(".navigation-item").removeClass('selected');
+
 		for(var i=0; i < NavView.items.length; i++){
 			if( $(this).data("link") == NavView.items[i].id ){
-				//MATCH:
-				var view = NavView.items[i].view;
-				var val = view.$().offset().top;
 				
-				$('body,html').animate({
-									scrollTop:val
-									},
-									500,
-									resizeAll
-								);
+				NavView.updateNav(i);
 
 				break;
 			}
 		}
+	},
+	
+	updateNav:function(i){
+			var view = NavView.items[i].view;
+			var val = view.$().offset().top;
+			var navItem = $(".navigation-item")[i];
+
+			$(navItem).addClass('selected');
+
+			if( NavView.items[i].id == 'about' ){
+				val = 0;
+			}
+
+			//current view to animate from..
+			var currentView = NavView.items[NavView.active].view;
+			var timeFactor = Math.abs( currentView.$().offset().top - val);
+
+			NavView.set("active" , i  );
+
+			//Debug.trace(' DIF ' + timeFactor + ' b html' + currentView.$().offset().top + ' val ' + val);
+			var time = 1500*timeFactor/$('body,html').height();
+			
+			//Debug.trace( time );
+			if( time < 500 ){ 
+				time = 500;
+			}else if( time > 1200 ){
+				time = 1200
+			}
+
+			$('body,html').animate({
+								scrollTop:val
+							},
+							{
+								duration:time,
+								complete:resizeAll,
+								step:resizeAll
+							});
+
+			//animate the arrow:
+			$("#nav-arrow").css({
+								"left": $(navItem).offset().left + $(navItem).width()/2 - $("#nav-arrow").width()/2
+								});
 	},
 
 	scrollEvent:function(e, delta){
@@ -387,6 +426,13 @@ var NavView = Em.View.create({
 			'top':top
 			//,'left':left
 		});
+
+
+		var navItem = $(".navigation-item")[NavView.active];
+
+		$("#nav-arrow").css({
+						"left": $(navItem).offset().left + $(navItem).width()/2 - $("#nav-arrow").width()/2
+						});
 		
 	}
 })

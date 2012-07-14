@@ -1,6 +1,10 @@
 SIC
 ================
-
+TODOS:
+	update on scroll the nav arrow
+	formulas section
+	deep linking
+	
 
 SPECS:
 	-template framework 

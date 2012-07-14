@@ -26,10 +26,11 @@
 		margin:auto;
 	}
 
-	ul, li{
+	li{
 		height:@navHeight;
 		cursor: pointer;
 		.font-nav();
+
 	}
 
 
@@ -43,5 +44,23 @@
 
 		padding-top:@navPadding;
 		padding-bottom:@navPadding;
+	}
+	.navigation-item.selected{
+		color:@red-font;
+	}
+
+	#nav-arrow{
+		width:24px;
+		height:10px;
+		position: absolute;
+		top:@navHeight+@navPadding*2;
+		left:50px;
+		background-image:url("../images/ui/nav_arrow.png");
+		overflow: hidden;
+		background-repeat: no-repeat;
+
+		.animate-default(left);
+
+
 	}
 }
