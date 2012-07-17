@@ -350,11 +350,8 @@ var NavView = Em.View.create({
 	itemClicked:function(e){
 		Debug.trace(' ITEM CLICKED ' + $(this).data("link") );
 
-		$(".navigation-item").removeClass('selected');
-
 		for(var i=0; i < NavView.items.length; i++){
 			if( $(this).data("link") == NavView.items[i].id ){
-				
 				NavView.updateNav(i);
 
 				break;
@@ -362,10 +359,18 @@ var NavView = Em.View.create({
 		}
 	},
 	
-	updateNav:function(i){
+	//updates arrow position
+	//updates color toggle
+	updateNav:function(i , scrollWindow ){
+			if( typeof scrollWindow === 'undefined' ){
+				scrollWindow = true;
+			}
+
 			var view = NavView.items[i].view;
 			var val = view.$().offset().top;
 			var navItem = $(".navigation-item")[i];
+
+			$(".navigation-item").removeClass('selected');
 
 			$(navItem).addClass('selected');
 
@@ -379,17 +384,18 @@ var NavView = Em.View.create({
 
 			NavView.set("active" , i  );
 
-			//Debug.trace(' DIF ' + timeFactor + ' b html' + currentView.$().offset().top + ' val ' + val);
-			var time = 1500*timeFactor/$('body,html').height();
+			if( scrollWindow == true ){
+				//Debug.trace(' DIF ' + timeFactor + ' b html' + currentView.$().offset().top + ' val ' + val);
+				var time = 1500*timeFactor/$('body,html').height();
 			
-			//Debug.trace( time );
-			if( time < 500 ){ 
-				time = 500;
-			}else if( time > 1200 ){
-				time = 1200
-			}
+				//Debug.trace( time );
+				if( time < 500 ){ 
+					time = 500;
+				}else if( time > 1200 ){
+					time = 1200
+				}
 
-			$('body,html').animate({
+				$('body,html').animate({
 								scrollTop:val
 							},
 							{
@@ -397,6 +403,7 @@ var NavView = Em.View.create({
 								complete:resizeAll,
 								step:resizeAll
 							});
+			}
 
 			//animate the arrow:
 			$("#nav-arrow").css({
@@ -419,7 +426,7 @@ var NavView = Em.View.create({
 
 		var pos = (belowFold == true )? 'fixed' : 'absolute';
 		var top = (belowFold == true )? 0 :  TopView.$().height()-NavView.$().height() ;
-		var left = (obj.width - NavView.$().width())/2;
+		//var left = (obj.width - NavView.$().width())/2;
 
 		NavView.$().css({
 			'position':pos,
@@ -427,12 +434,29 @@ var NavView = Em.View.create({
 			//,'left':left
 		});
 
+		//determine if the nav view active item is the actually correct one / state.
+		for( var n=0; n < NavView.items.length; n++){
+			var prev = (n-1<0)? 0: n-1;
+			//GO TO TOP position for nav is less then item:
+			Debug.trace( $(window).scrollTop() + ' vs. ' + NavView.items[n].view.$().offset().top );
+
+			if( $(window).scrollTop() < NavView.items[n].view.$().offset().top-100 ){
+				//select previous
+				Debug.trace(' update: ' + prev );
+				NavView.updateNav(prev, false);
+				break;
+			}else if( $(window).scrollTop() > NavView.items[NavView.items.length-1].view.$().offset().top-100  ){
+				NavView.updateNav(NavView.items.length-1, false);
+				break;
+			}
+
+		}
 
 		var navItem = $(".navigation-item")[NavView.active];
 
 		$("#nav-arrow").css({
-						"left": $(navItem).offset().left + $(navItem).width()/2 - $("#nav-arrow").width()/2
-						});
+					"left": $(navItem).offset().left + $(navItem).width()/2 - $("#nav-arrow").width()/2
+					});
 		
 	}
 })
