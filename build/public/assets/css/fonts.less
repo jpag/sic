@@ -142,15 +142,16 @@
 
 .font-paragraph(){
 	font-family: 'Lato-Regular'; //.sans-serif;
-	font-size:13px;
-	font-style:normal;
+	// font-size:13px;
+	.font-paragraph-size();
 }
 
 .font-paragraph-thin(){
   font-family: 'Lato-Light'; //.sans-serif;
-  font-size:13px;
+  // font-size:13px;
   font-style:normal; 
   letter-spacing: 1px;
+  .font-paragraph-size();
 }
 
 
@@ -162,4 +163,18 @@
 .font-italics(){
   font-family:'Lato-LightItalic';
 }
+
+
+
+//SIZING
+
+.font-paragraph-size(){
+  font-size:15px;
+  line-height:24px; 
+}
+.font-paragraph-small(){
+  font-size:13px;
+  line-height: 19px;
+}
+
 

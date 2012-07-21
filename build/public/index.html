@@ -49,7 +49,10 @@
     <div id="logo" ></div>
     <div class="title">{{copy.title}}</div>
     <div id="stars" ></div>
-    <div id="formulas" >
+  </script>
+  
+  <!--
+  <div id="formulas" >
       {{#each formulas}}
       <div class="formula" >
         <div class="formula-container">
@@ -59,10 +62,13 @@
       </div>
       {{/each}}
     </div>
-  </script>
+  -->
 
   <script type="text/x-handlebars" data-template-name="about-content" >
     <div class="body">
+      {{#each copy.boldbody}}
+        <span class="bold">{{this}}</span>
+      {{/each}}
       {{#each copy.body}}
         <span>{{this}}</span>
       {{/each}}
@@ -82,19 +88,30 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="formula-content" >
-    <div id="formula-graphic" ></div>
+    <div id="formula-graphic">
+        <img id="formula-img" {{bindAttr src="formulaIMG"}} usemap="#imgMap" border="0" width="434" height="443" alt="Formula" />
+        <map id="imgMap" name="imgMap">
+          <area shape="poly" coords="203,199,203,48,100,81,51,169,70,278," data-num="1" />
+          <area shape="poly" coords="202,199,330,272,360,175,297,75,210,45," data-num="2" />
+          <area shape="poly" coords="204,201,340,278,264,338,205,353,109,326,69,275," data-num="3" />
+        </map>
+    </div>
     <div id="formula-content">
-      <div class="title">{{copy.title}}</div>
+      <div class="title">{{selected.title}}</div>
       <div class="body">
-        {{#each copy.body}}
+        {{#each selected.body}}
           <span>{{this}}</span>
         {{/each}}
       </div>
+      
+      {{#if selected.bulletpoints}}
       <ul class="bulletpoints">
-        {{#each copy.bulletpoints}}
+        {{#each selected.bulletpoints}}
           <li>{{this}}</li>
         {{/each}}
       </ul>
+      {{/if}}
+
     </div>
   </script>
 
@@ -109,11 +126,11 @@
           {{#if body}}
             <div class="op-body" >{{body}}</div>
           {{/if}}
-          {{#if button}}
-            <div class="op-button btn">{{button}}</div>
-          {{/if}}
           {{#if email}}
-            <div class="op-email btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
+            <div class="op-hover" >
+              <div class="op-button btn">{{button}}</div>
+              <div class="op-email btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
+            </div>
           {{/if}}
         </li>
       {{/each}}

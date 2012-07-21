@@ -3,7 +3,8 @@ var TopView = Em.View.create({
 	templateName:"container-template",
 	classNames:["top", "container"],
 	
-	bkgd:{w:900, h:650},
+	bkgd:{w:900, h:475},
+	setHeight:475,
 
 	imgBkgd:function(){
 		return global.assets()+'images/bkgds/main-bkgd.jpg';
@@ -13,12 +14,13 @@ var TopView = Em.View.create({
 		templateName:"top-content",
 		classNames:"top-content",
 		copy:copy.main,
+		/*
 		formulas:[
 	  		{title:"formula", number:1},
 	  		{title:"formula", number:2},
 	  		{title:"formula", number:3}
   		],
-
+		*/
 		didInsertElement:function(){
 			resizeAll();
 		}
@@ -40,8 +42,8 @@ var TopView = Em.View.create({
   	resize:function(obj){
   		var availH = obj.height - AboutView.$().height();
 
-  		var h = (availH < global.minHeight )? global.minHeight : availH ;
-
+  		var h = TopView.setHeight; //(availH < TopView.bkgd.h )? TopView.bkgd.h : availH ;
+  		
   		TopView.$().css({
   				"height":h
   		})
@@ -117,14 +119,41 @@ var FormulasView = Em.View.create({
 	templateName:"container-template",
 	classNames:["formulas", "container"],
 	
-	childView:Em.View.extend({
+	childView:Em.View.create({
 		templateName:"formula-content",
 		name:"Formulas",
-		copy:copy.formula
+		copy:copy.formula,
+		//default one load it up ASAP
+		selected:copy.formula.formulas[0],
+
+		formulaIMG:'/assets/images/graphics/formula.png',
+
+		init:function(){
+			this.formulaIMG = global.assets()+'images/graphics/formula.png';
+			this._super();
+		},
+	
+		didInsertElement:function(){
+			this.$("area").mouseover(FormulasView.areaOver);
+			this.$("area").mouseout(FormulasView.areaOut);
+		}
+
 	}),
 
 	didInsertElement:function(){
-		var child = this.childView.create().appendTo( this.$('.content') );
+		//var child = this.childView.create().appendTo( this.$('.content') );
+		this.childView.appendTo( this.$('.content') );
+  	},
+  	areaOver:function(){
+  		Debug.trace(' OVER '+ $(this).data('num') );
+  		var num = parseInt( $(this).data('num') );
+  		$("#formula-content").hide().fadeIn(500);
+  		FormulasView.childView.set('selected' , copy.formula.formulas[ num ] );
+  	},
+
+  	areaOut:function(){
+  		//SET TO NONE?
+  		FormulasView.childView.set('selected' , copy.formula.formulas[ 0 ] );
   	},
 
   	resize:function(obj){}
@@ -438,11 +467,11 @@ var NavView = Em.View.create({
 		for( var n=0; n < NavView.items.length; n++){
 			var prev = (n-1<0)? 0: n-1;
 			//GO TO TOP position for nav is less then item:
-			Debug.trace( $(window).scrollTop() + ' vs. ' + NavView.items[n].view.$().offset().top );
+			//Debug.trace( $(window).scrollTop() + ' vs. ' + NavView.items[n].view.$().offset().top );
 
 			if( $(window).scrollTop() < NavView.items[n].view.$().offset().top-100 ){
 				//select previous
-				Debug.trace(' update: ' + prev );
+				//Debug.trace(' update: ' + prev );
 				NavView.updateNav(prev, false);
 				break;
 			}else if( $(window).scrollTop() > NavView.items[NavView.items.length-1].view.$().offset().top-100  ){
@@ -460,3 +489,4 @@ var NavView = Em.View.create({
 		
 	}
 })
+
