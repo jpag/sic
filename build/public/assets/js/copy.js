@@ -6,7 +6,7 @@ var copy = {
 	about:{
 
 		twitter:{
-			account:"jepiga",
+			account:"sicgrp",
 			title:"Latest Tweet",
 			tweet:"",
 			time:"",
@@ -25,8 +25,8 @@ var copy = {
 			{
 				title:"Select a Formula",
 				body:[
-					"8-bit sriracha. Cupidatat banh mi fixie, vegan odd future velit squid vice veniam jean shorts non pour-over four loko wayfarers.",
-					],
+					"8-bit sriracha. Cupidatat banh mi fixie, vegan odd future velit squid vice veniam jean shorts non pour-over four loko wayfarers."
+					]
 			},
 			{
 				title:"Formula 1: gastropub. Officia laborum DIY",
@@ -71,7 +71,7 @@ var copy = {
 					"enim fixie, semiotics sed put a bird"
 				]
 			}
-		],
+		]
 	},
 	opportunities:{
 		title:"Opportunities",
@@ -181,8 +181,7 @@ var copy = {
 			emails:[
 				"info@sicgroupllc.com","careers@sicgroup.com","enquires@sicgroup.com","support@sicgroup.com"
 			]
-		},
-
+		}
 	},
 	footer:{
 		left:"© 2012 - SIC Group"

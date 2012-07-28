@@ -414,7 +414,7 @@ body {
 }
 .top {
   overflow: hidden;
-  background-color: #a28342;
+  background-color: #4a719a;
   /*
 	#formulas{
 		margin-top:30px;
@@ -962,6 +962,27 @@ body {
   -ms-transition: left 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835);
   -o-transition: left 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835);
   transition: left 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835);
+}
+.share-btn {
+  float: right;
+  position: relative;
+  display: inline;
+  overflow: hidden;
+  width: 90px;
+  height: 21px;
+  margin-right: 25px;
+}
+#twitter-share {
+  top: 1px;
+  width: 58px;
+}
+#fb-share {
+  width: 49px;
+}
+#gplus-share {
+  width: 33px;
+  top: 1px;
+  margin-right: 0px;
 }
 .top #bkgd {
   z-index: 5;

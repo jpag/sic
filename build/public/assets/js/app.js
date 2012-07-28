@@ -3,8 +3,8 @@ var TopView = Em.View.create({
 	templateName:"container-template",
 	classNames:["top", "container"],
 	
-	bkgd:{w:900, h:475},
-	setHeight:475,
+	bkgd:{w:1255, h:735},
+	setHeight:600,
 
 	imgBkgd:function(){
 		return global.assets()+'images/bkgds/main-bkgd.jpg';
@@ -252,7 +252,7 @@ var ContactView = Em.View.create({
 				     		style: google.maps.ZoomControlStyle.SMALL
 				 		},
 				 		mapTypeControl:false,
-				 		panControl:true,
+				 		panControl:true
 				 		//zoomControl:false,
   		 				}    
 
