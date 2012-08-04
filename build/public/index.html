@@ -27,6 +27,8 @@
 
 
   <script type="text/x-handlebars" data-template-name="container-template" >
+    {{#if backgroundImage }}<div class="backgroundImage"><img {{bindAttr src="backgroundImage"}} /></div>{{/if}}
+    {{#if displayTitle }}<div class="title-master title">{{displayTitle}}</div>{{/if}}
     <div class="content">
     <!-- insert the proper template in here -->      
     </div>
@@ -51,19 +53,6 @@
     <div id="stars" ></div>
   </script>
   
-  <!-- formulas removed from top VIEW
-  <div id="formulas" >
-      {{#each formulas}}
-      <div class="formula" >
-        <div class="formula-container">
-          {{title}}
-          <div class="formula-number">{{number}}</div>
-        </div>
-      </div>
-      {{/each}}
-    </div>
-  -->
-
   <script type="text/x-handlebars" data-template-name="about-content" >
     <div class="body">
       {{#each copy.boldbody}}
@@ -87,17 +76,8 @@
     </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="formula-content" >
-    <div id="formula-graphic">
-        <img id="formula-img" {{bindAttr src="formulaIMG"}} usemap="#imgMap" border="0" width="434" height="443" alt="Formula" />
-        <map id="imgMap" name="imgMap">
-          <area shape="poly" coords="203,199,203,48,100,81,51,169,70,278," data-num="1" />
-          <area shape="poly" coords="202,199,330,272,360,175,297,75,210,45," data-num="2" />
-          <area shape="poly" coords="204,201,340,278,264,338,205,353,109,326,69,275," data-num="3" />
-        </map>
-    </div>
-    <div id="formula-content">
-      <div class="title">{{selected.title}}</div>
+  <script type="text/x-handlebars" data-template-name="service-content" >
+    <div id="service-content">
       <div class="body">
         {{#each selected.body}}
           <span>{{this}}</span>
@@ -117,7 +97,6 @@
 
 
   <script type="text/x-handlebars" data-template-name="opportunities-content" >
-    <div class="title">{{copy.title}}</div>
     <ul>
       {{#each copy.columns}}
         <li>
@@ -139,7 +118,6 @@
   
 
   <script type="text/x-handlebars" data-template-name="team-content" >
-    <div class="title">{{copy.title}}</div>
     <div class="body">
       {{#each copy.body}}
         <span>{{this}}</span>
@@ -158,7 +136,6 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="contact-content" >
-    <div class="title">{{copy.title}}</div>
     <ul id="locations">
     {{#each copy.locations}}
       <li>
@@ -168,26 +145,32 @@
         <div class="location-other">{{city}}</div>
         <div class="location-other topspacing">{{phone}}</div>
         <div class="location-other btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
-        <div class="location-onmap btn" onclick="ContactView.centerMap(this);" {{bindAttr data-lat="lat"}} {{bindAttr data-lng="lng"}} >Show on Map</div>
+        {{#if lat }}
+          <div class="location-onmap btn" onclick="ContactView.centerMap(this);" 
+            {{bindAttr data-lat="lat"}} {{bindAttr data-lng="lng"}} >
+            Show on Map
+          </div>
+        {{/if}}
       </li>
     {{/each}}
     </ul>
 
-    <div id="inquiries" >
-      <div class="title" >{{copy.inquries.title}}</div>
-      <ul>
-        {{#each copy.inquries.emails}}
-        <li {{bindAttr data-email="this" }} class="btn" onclick="email(this);" ><a >{{this}}</a></li>
-        {{/each}}
-      </ul>
+    <div id="online" >
+      <div class="title" >{{copy.online.title}}</div>
+      <div id="share-btns">
+      
+      </div>
     </div>
 
   </script>
 
   <script type="text/x-handlebars" data-template-name="footer-content" >
+    {{copy.center}}
+  </script>
+
+<!--
     <div id="footer-left">{{copy.left}}</div>
     <div id="footer-right">
-        <!-- GOOGLE PLUS -->
         <div class="share-btn" id="gplus-share">
           <div class="g-plusone" data-size="medium"></div>
         </div>
@@ -199,8 +182,7 @@
           <a href="https://twitter.com/share" class="twitter-share-button" data-via="sicgrp">Tweet</a>
         </div>
      </div>
-  </script>
-
+-->
 
 
 
@@ -214,7 +196,7 @@
   
   
 
-  
+  <script src="assets/js/debugger.js"></script>
   <script type="text/javascript" >
     //'GLOBAL' scope/setup
     //SOME OF THIS could be dynamically retrieved from a server side script:
@@ -293,9 +275,9 @@
 
       TopView.appendTo("#container");
       AboutView.appendTo("#container");
-      FormulasView.appendTo("#container");
+      ServicesView.appendTo("#container");
       OpportunitiesView.appendTo("#container");
-      TeamView.appendTo("#container");
+      //TeamView.appendTo("#container");
       ContactView.appendTo("#container");
       FooterView.appendTo("#container");
       NavView.appendTo("#container");
@@ -319,8 +301,8 @@
         
         TopView.resize(obj);
         AboutView.resize(obj);
-        FormulasView.resize(obj);
-        TeamView.resize(obj);
+        ServicesView.resize(obj);
+        //TeamView.resize(obj);
         OpportunitiesView.resize(obj);
         ContactView.resize(obj);
 

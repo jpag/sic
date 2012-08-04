@@ -19,9 +19,10 @@ var copy = {
 				"SIC Group is a Washington, D.C. headquartered firm, which operates across emerging markets and frontier markets. SIC Group caters to the public and corporate sector alike. The synergy of corporate and public access in frontier markets enables us to apply unique methodologies to produce directly measurable results."
 			]
 	},
-	formula:{
-		
-		formulas:[
+	service:{
+		imgname:"service-bkgd.jpg",
+		title:"Services",
+		services:[
 			{
 				title:"Select a Formula",
 				body:[
@@ -100,6 +101,7 @@ var copy = {
 			}
 		]
 	},
+	/*
 	team:{
 		title:"The team",
 		body:[
@@ -132,7 +134,7 @@ var copy = {
 				email:"susanne@sicgroup.com"
 			}
 		]
-	},
+	},*/
 	contact:{
 		title:"Contact us",
 		buttonStates:{
@@ -159,31 +161,29 @@ var copy = {
 				name:"Affiliated offices",
 				title:"Shabakat Corporation | SIC Group",
 				address:"XXXXXXXXX",
-				city:"Tripoli, Libya",
-				phone:"+1 894 455 4548",
-				email:"sic.dc@sicgroupllc.com",
-				lat:32.876174,
-				lng:13.187507
-			},
-			{
-				name:"Affiliated offices",
-				title:"Shabakat Corporation | SIC Group",
-				address:"XXXXXXXXX",
 				city:"Cairo, Egypt",
 				phone:"+1 894 455 4548",
 				email:"sic.dc@sicgroupllc.com",
 				lat:30.044420,
 				lng:31.235712
+			},
+			{
+				name:"Affiliated offices",
+				title:"Shabakat Corporation | SIC Group",
+				address:"XXXXXXXXX",
+				city:"Tripoli, Libya",
+				phone:"+1 894 455 4548",
+				email:"sic.dc@sicgroupllc.com"
 			}
 		],
-		inquries:{
-			title:"General Inquries",
-			emails:[
-				"info@sicgroupllc.com","careers@sicgroup.com","enquires@sicgroup.com","support@sicgroup.com"
-			]
+		online:{
+			title:"Online",
+			facebook:"http://www.facebook.com/",
+			twitter:"http://www.twitter.com/",
+			google:"http://www.google.com/"
 		}
 	},
 	footer:{
-		left:"© 2012 - SIC Group"
+		center:"© 2012 - SIC Group All Rights Reserved."
 	}
 }

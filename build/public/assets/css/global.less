@@ -13,6 +13,7 @@
 
 html, body{
   .font-paragraph();
+  background-color:@dark-bkgd;
 }
 
 @import 'content';
@@ -42,6 +43,15 @@ html, body{
 }
 
 //Z-INDEXES:
+.backgroundImage{
+  z-index: 1;
+}
+.services .title-master{
+  z-index: 200;
+}
+.services .content{
+  z-index: 210;
+}
 .top #bkgd{
   z-index: 5;
 }

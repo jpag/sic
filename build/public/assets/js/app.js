@@ -3,8 +3,8 @@ var TopView = Em.View.create({
 	templateName:"container-template",
 	classNames:["top", "container"],
 	
-	bkgd:{w:1255, h:735},
-	setHeight:600,
+	bkgd:{w:1500, h:413},
+	setHeight:413,
 
 	imgBkgd:function(){
 		return global.assets()+'images/bkgds/main-bkgd.jpg';
@@ -14,13 +14,7 @@ var TopView = Em.View.create({
 		templateName:"top-content",
 		classNames:"top-content",
 		copy:copy.main,
-		/*
-		formulas:[
-	  		{title:"formula", number:1},
-	  		{title:"formula", number:2},
-	  		{title:"formula", number:3}
-  		],
-		*/
+		
 		didInsertElement:function(){
 			resizeAll();
 		}
@@ -115,27 +109,26 @@ var AboutView = Em.View.create({
   	resize:function(obj){}
 });
 
-var FormulasView = Em.View.create({
+var ServicesView = Em.View.create({
 	templateName:"container-template",
-	classNames:["formulas", "container"],
+	classNames:["services", "container"],
+	displayTitle:copy.service.title,
 	
-	childView:Em.View.create({
-		templateName:"formula-content",
-		name:"Formulas",
-		copy:copy.formula,
-		//default one load it up ASAP
-		selected:copy.formula.formulas[0],
+	backgroundImage: global.assets()+'images/bkgds/'+copy.service.imgname,
 
-		formulaIMG:'/assets/images/graphics/formula.png',
+	childView:Em.View.create({
+		templateName:"service-content",
+		name:"Services",
+		copy:copy.service,
+		//default one load it up ASAP
+		selected:copy.service.services[0],
 
 		init:function(){
-			this.formulaIMG = global.assets()+'images/graphics/formula.png';
 			this._super();
 		},
 	
 		didInsertElement:function(){
-			this.$("area").mouseover(FormulasView.areaOver);
-			this.$("area").mouseout(FormulasView.areaOut);
+			
 		}
 
 	}),
@@ -144,21 +137,18 @@ var FormulasView = Em.View.create({
 		//var child = this.childView.create().appendTo( this.$('.content') );
 		this.childView.appendTo( this.$('.content') );
   	},
-  	areaOver:function(){
-  		Debug.trace(' OVER '+ $(this).data('num') );
-  		var num = parseInt( $(this).data('num') );
-  		$("#formula-content").hide().fadeIn(500);
-  		FormulasView.childView.set('selected' , copy.formula.formulas[ num ] );
-  	},
+  	
+  	resize:function(obj){
+  		
+  		var val = (obj.width - ServicesView.$(".backgroundImage img").width() ) /2;
+  		ServicesView.$(".backgroundImage img").css({
+  			"left":val
+  		})
 
-  	areaOut:function(){
-  		//SET TO NONE?
-  		FormulasView.childView.set('selected' , copy.formula.formulas[ 0 ] );
-  	},
-
-  	resize:function(obj){}
+  	}
 });
 
+/*
 var TeamView = Em.View.create({
 	templateName:"container-template",
 	classNames:["team", "container"],
@@ -186,11 +176,13 @@ var TeamView = Em.View.create({
   	},
   	resize:function(obj){}
 });
+*/
 
 var OpportunitiesView = Em.View.create({
 	templateName:"container-template",
 	classNames:["opportunities", "container"],
-	
+	displayTitle:copy.opportunities.title,
+
 	childView:Em.View.extend({
 		templateName:"opportunities-content",
 		name:"Opportunities",
@@ -212,7 +204,8 @@ var OpportunitiesView = Em.View.create({
 var ContactView = Em.View.create({
 	templateName:"container-template",
 	classNames:["contact", "container"],
-	
+	displayTitle:copy.contact.title,
+
 	childView:Em.View.extend({
 		templateName:"contact-content",
 		name:"CONTACT",
@@ -307,26 +300,7 @@ var FooterView = Em.View.create({
 
 	didInsertElement:function(){
 		var child = this.childView.create().appendTo( this.$('.content') );
-    	
-		/*
-		 <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
-      	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-      	<div class="fb-like" data-href="http://www.google.com" data-send="false" data-width="200" data-show-faces="false"></div>
-
-      	<!-- Place this tag where you want the +1 button to render -->
-      	<g:plusone size="small" annotation="inline"></g:plusone>
-
-      	<!-- Place this render call where appropriate -->
-      	<script type="text/javascript">
-        (function() {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-      	</script>
-      */
-
+    
   	},
   	resize:function(obj){}
 });
@@ -346,20 +320,20 @@ var NavView = Em.View.create({
 			view:AboutView
 		},
 		{
-			name:"Formulas", 
-			id:'formula', 
-			view:FormulasView 
+			name:"services", 
+			id:'services', 
+			view:ServicesView 
 		},
 		{
 			name:"Opportunities", 
 			id:'opportunities', 
 			view:OpportunitiesView 
 		},
-		{
+		/*{
 			name:"Team", 
 			id:'team',
 			view:TeamView 
-		},
+		},*/
 		{
 			name:"Contact", 
 			id:'contact', 
