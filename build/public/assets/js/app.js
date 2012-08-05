@@ -74,10 +74,15 @@ var AboutView = Em.View.create({
 	childView:Em.View.create({
 		templateName:"about-content",
 		copy:copy.about,
-		
-		tweetTime:'',
-		tweet:'',
-		
+		twitterUser:"https://twitter.com/",
+		tweets:[],
+
+		init:function(){
+			this.twitterUser = "https://twitter.com/"+this.copy.twitter.account;
+
+			this._super();
+		},
+
 		didInsertElement:function(){
 			//load tweet message:
 			//https://dev.twitter.com/docs/api/1/get/statuses/user_timeline
@@ -88,17 +93,32 @@ var AboutView = Em.View.create({
 					function(data){
 						if( data.length > 0 ){
 							
-							var d = data[0].created_at;
-								d = d.replace("+0000 ", "");
-							var date = new Date(d);
+							var tweet1 = AboutView.childView.generateTweet(data[0]);
+							var tweet2 = (data.length > 1 )? AboutView.childView.generateTweet(data[1]) : {};
+
+							var tweets = [
+										tweet1, tweet2
+										]
+
+							AboutView.childView.set("tweets" , tweets );
 							
-							AboutView.childView.set("tweetTime" , date.toLocaleDateString() );
-							AboutView.childView.set("tweet", data[0].text );
 						}else{
 							$("#twitter-container").fadeOut();
 						}
 					}
 					);
+		},
+
+		generateTweet:function(obj){
+			var d = obj.created_at;
+				d = d.replace("+0000 ", "");
+			var date = new Date(d);
+			var stringDate = date.toLocaleDateString();
+			var txt = obj.text;
+
+			var url = "https://twitter.com/"+obj.user.id_str+"/status/" + obj.id_str;
+
+			return {text:txt, date:stringDate, url:url }
 		}
 	}),
 
@@ -118,6 +138,7 @@ var ServicesView = Em.View.create({
 
 	childView:Em.View.create({
 		templateName:"service-content",
+		classNames:["servicesView"],
 		name:"Services",
 		copy:copy.service,
 		//default one load it up ASAP
@@ -130,7 +151,6 @@ var ServicesView = Em.View.create({
 		didInsertElement:function(){
 			
 		}
-
 	}),
 
 	didInsertElement:function(){
@@ -145,38 +165,18 @@ var ServicesView = Em.View.create({
   			"left":val
   		})
 
+  		//carousel
+  		$(".service-item").css({
+			"width":obj.width
+		})
+
+		$("#service-content").css({
+				"width":obj.width*copy.service.services.length
+		});
+
+  		
   	}
 });
-
-/*
-var TeamView = Em.View.create({
-	templateName:"container-template",
-	classNames:["team", "container"],
-	
-	childView:Em.View.extend({
-		templateName:"team-content",
-		name:"TEAM",
-		copy:copy.team,
-
-		didInsertElement:function(){
-			var count = copy.team.members.length;
-			var margin = 10;
-
-			this.$("#members li").css({
-				"width":(this.$("#members").width()/count)-margin*2,
-				"margin-right":margin,
-				"margin-left":margin
-			})
-		}
-	}),
-
-	didInsertElement:function(){
-		var child = this.childView.create().appendTo( this.$('.content') );
-    	
-  	},
-  	resize:function(obj){}
-});
-*/
 
 var OpportunitiesView = Em.View.create({
 	templateName:"container-template",
@@ -213,6 +213,7 @@ var ContactView = Em.View.create({
 		didInsertElement:function(){
 			//create google maps here.
 			ContactView.initMap(); 
+
 		}
 
 	}),
@@ -233,6 +234,7 @@ var ContactView = Em.View.create({
   		var firstLocation = $("#locations .location-onmap")[0];
 		$(firstLocation).addClass("active").html(copy.contact.mapStates.on);	
   		
+		var styles = (typeof mapStyle != 'undefined')? mapStyle : []
   		//https://developers.google.com/maps/documentation/javascript/reference
   		var settings = {      
   						center: StartLatlng,
@@ -245,8 +247,9 @@ var ContactView = Em.View.create({
 				     		style: google.maps.ZoomControlStyle.SMALL
 				 		},
 				 		mapTypeControl:false,
-				 		panControl:true
+				 		panControl:true,
 				 		//zoomControl:false,
+				 		styles:styles
   		 				}    
 
 		gMap = new google.maps.Map(document.getElementById("gmaps-container"), settings);        
@@ -367,10 +370,11 @@ var NavView = Em.View.create({
 	updateNav:function(i , scrollWindow ){
 			if( typeof scrollWindow === 'undefined' ){
 				scrollWindow = true;
-			}
+			}	
+			var TopPadding = 50;
 
 			var view = NavView.items[i].view;
-			var val = view.$().offset().top;
+			var val = view.$().offset().top - TopPadding;
 			var navItem = $(".navigation-item")[i];
 
 			$(".navigation-item").removeClass('selected');
@@ -386,6 +390,8 @@ var NavView = Em.View.create({
 			var timeFactor = Math.abs( currentView.$().offset().top - val);
 
 			NavView.set("active" , i  );
+
+			//Debug.trace(  currentView.$().parent() )
 
 			if( scrollWindow == true ){
 				//Debug.trace(' DIF ' + timeFactor + ' b html' + currentView.$().offset().top + ' val ' + val);

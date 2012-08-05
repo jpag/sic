@@ -30,10 +30,22 @@
 		width:100%;
 		height:100%;
 		overflow:hidden;
+
+		.image-shadow-inset{
+			-webkit-box-shadow: inset 0px 2px 40px 3px rgba(0, 0, 0, .5);
+        	box-shadow: inset 0px 2px 40px 3px rgba(0, 0, 0, .5);
+        	position: absolute;
+        	top:0px;
+        	left:0px;
+        	width:100%;
+        	height:100%;
+        }
 	}
+
 	.backgroundImage img{
 		position: relative;
 		margin:auto;
+		
 	}
 
 	.content{
@@ -104,7 +116,7 @@
 
 .about{
 	background-color: #f8f8f8;
-	height:350px;
+	height:670px;
 
 	@aboutBodyWidth:635px;
 	@marginBetween:20px;
@@ -132,7 +144,7 @@
 		.font-paragraph-small();
 
 		.title{
-			padding-bottom: 10px;
+			padding-bottom: 30px;
 			color:@blue-tweet;
 			
 			text-transform: uppercase;
@@ -142,12 +154,22 @@
 			padding-top:6px;
 			background-position: 110px 2px;
 			background-repeat: no-repeat;
+			display:block;
+			text-decoration: none;
 		}
+		.title:hover{
+			text-decoration: underline;
+		}
+
 		.twitter-body{
-			padding-bottom:10px;
+			text-decoration: none;
+			display:block;
+			color:@defaultGrey-font;
 		}
 		.bottom{
-			padding-bottom:10px;	
+			padding-top:20px;
+			padding-bottom:30px;
+			height:19px;	
 		}
 		#twitter-handle, #twitter-time{
 			
@@ -171,14 +193,53 @@
 	}
 }
 
+@servicesHeight:611px;
+
 .services{
-	//.darkBlueGradient();
+	
+
 	background-color:#b3a07f;
-	height:550px;
+	height:@servicesHeight;
 	color:#FFFFFF;
 
 	@graphicWidth:434px;
 	@marginBetween:20px;
+
+	.content{
+		width:100%;
+	}
+
+	.servicesView{
+		width:100%;
+		position: relative;
+
+		@arrowHeight:24px;
+		@arrowPadding:20px;
+
+		.arrow{
+			position:absolute;
+			width:14px;
+			height:@arrowHeight;
+			top: 100px; //(@servicesHeight) / 2;
+		}
+
+		.left-arrow{
+			left:@arrowPadding;
+			background-image:url("../images/ui/arrow-left.png");
+		}
+		.right-arrow{
+			right:@arrowPadding;
+			background-image:url("../images/ui/arrow-right.png");
+		}
+
+		.arrow:hover{
+			background-position:0px -@arrowHeight;
+		}
+		.arrow.disabled{
+			background-position:0px -@arrowHeight*2;
+		}
+
+	}
 
 	.title-master{
 		border-bottom:1px solid RGBA(200,200,200,1);
@@ -186,33 +247,32 @@
 
 	#service-content{
 		width:@siteWidth;
+		position: relative;
+		overflow: hidden;
 
-		.title{
-			
-		}
-		
-		.body{
-			.font-paragraph-size();
-			margin-bottom:10px;
-		}
 
-		//http://csswizardry.com/2010/02/mutiple-column-lists-using-one-ul/
-		ul{
-			width:@siteWidth - (@graphicWidth+@marginBetween);
-			margin-bottom:20px;
-			overflow:hidden;
-		}
-		/* 2 col */
-		li{
-			.font-paragraph-small();
+		.service-item{
+			width:@siteWidth;
+			height:100%;
+			position: relative;
 			float:left;
-			display:inline;
-		 	width:48%;
-		 	padding:0px 1% 0px 1%;
+			text-align: center;
 
-		 } 
+			.title{
+				.font-title(28px);	
+				padding-bottom:40px;
+			}
+		
+			.body{
+				.font-paragraph-size();
+				position: relative;
+				margin:auto;
+				width:@siteWidth*.75;
+
+			}
+		}
+
 	}
-
 }
 
 .opportunities{
@@ -247,8 +307,8 @@
 			padding-bottom:15px
 		}
 		.op-img{
-			width:100px;
-			height:100px;
+			width:106px;
+			height:106px;
 			overflow: hidden;
 			position: relative;
 			margin:auto;
@@ -264,14 +324,15 @@
 		}
 
 		.op-button{
-			color:@red-font;
+			
+			color:#FFFFFF;
 			padding:10px;
 
 			-webkit-border-radius: 4px;
 			border-radius: 4px;
 
-			border:2px solid #edeeef;
-			background-color:#FFFFFF;
+			border-bottom:4px solid #B90000;//#edeeef;
+			background-color:@red-font;
 			width:150px;
 
 			position: relative;
@@ -279,14 +340,29 @@
 
 			margin-top:@ul-padding;
 			margin-bottom:@ul-padding;
+
 		}
 		.op-hover{
 			display:none;
+			position: relative;
 		}
 
 		.op-button:hover{
-			background-color:@red-font;
-			color:#FFFFFF;
+			//background-color:@red-font;
+			//color:#FFFFFF;
+			top:-3px;
+			border-bottom:7px solid #B90000;//#edeeef;
+		}
+		.op-button:active{
+			top:3px;
+			border-bottom:1px solid #B90000;//#edeeef;	
+		}
+
+		.op-email{
+			position:absolute;
+			top:70px;
+			text-align: center;
+			width:100%;
 		}
 
 		a{
@@ -299,7 +375,7 @@
 
 	li:hover{ 
 		.op-img img{
-			top:-100px;
+			top:-106px;
 		}
 		.op-body{
 			display: none;
@@ -315,12 +391,12 @@
 .contact{
 	background-color:@dark-bkgd;
 	color:#ECECEC;
-	height: 850px;
+	height: 875px;
 	
 	.contact-columnTitle(){
 		font-family:'Lato-Bold';
 		font-size:14px;
-		padding-bottom: 13px;
+		padding-bottom: 20px;
 	}
 
 	
@@ -374,25 +450,40 @@
 		color:#d84940;	
 		background-position: 0px 0px;	
 	}
-
-	#inquiries{
-		position: relative;
-		float:left;
-		width:175px;
-
-		.title{
-			.contact-columnTitle();
-		}
-		li{
-			display: block;
-			padding-bottom:10px;
-		}
-	}
-
-
+	
 	a:hover{
 		color:#999999;
 		text-decoration: underline;
+	}
+
+	#online{
+		.title{
+			.contact-columnTitle();
+		}
+
+		#share-btns{
+
+			.share-btn{
+				width:51px;
+				height:51px;
+				display:inline;
+				float:left;
+				padding-right: 30px;
+			}
+			.share-btn:hover{
+				background-position:0px -51px;
+			}
+
+			#share-btn-tw{
+				background-image:url("../images/ui/btn-share-tw.png");
+			}
+			#share-btn-fb{
+				background-image:url("../images/ui/btn-share-fb.png");
+			}
+			#share-btn-gp{
+				background-image:url("../images/ui/btn-share-gp.png");
+			}
+		}
 	}
 
 
@@ -407,7 +498,6 @@
 
 .footer{
 	background-color:@dark-bkgd;
-	height:50px;
 	padding-top:45px;
 	text-align: center;
 	.font-paragraph-small();

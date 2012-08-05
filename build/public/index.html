@@ -27,7 +27,12 @@
 
 
   <script type="text/x-handlebars" data-template-name="container-template" >
-    {{#if backgroundImage }}<div class="backgroundImage"><img {{bindAttr src="backgroundImage"}} /></div>{{/if}}
+    {{#if backgroundImage }}
+      <div class="backgroundImage">
+        <img {{bindAttr src="backgroundImage"}} />
+        <div class='image-shadow-inset'></div>
+      </div>
+    {{/if}}
     {{#if displayTitle }}<div class="title-master title">{{displayTitle}}</div>{{/if}}
     <div class="content">
     <!-- insert the proper template in here -->      
@@ -63,35 +68,37 @@
       {{/each}}
     </div>
     <div id="twitter-container">
-      <div class="title">
+      <a class="title btn" {{bindAttr href="twitterUser"}} target="_blank">
         {{copy.twitter.title}}
-      </div>
-      <div class="twitter-body">
-        {{tweet}}
-      </div>
+      </a>
+      {{#each tweets}}
+      <a {{bindAttr href="url"}} class="twitter-body" target="_blank" >
+        {{text}}
       <div class="bottom">
-        <span id="twitter-handle">@{{copy.twitter.account}}</span>
-        <span id="twitter-time">{{tweetTime}}</span>
+        <!-- <span id="twitter-handle">@{{copy.twitter.account}}</span> -->
+        <span id="twitter-time">{{date}}</span>
       </div>
+      </a>
+      {{/each}}
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="service-content" >
+    <div class="arrow btn left-arrow"></div>
+    <div class="arrow btn right-arrow"></div>
     <div id="service-content">
-      <div class="body">
-        {{#each selected.body}}
-          <span>{{this}}</span>
-        {{/each}}
-      </div>
-      
-      {{#if selected.bulletpoints}}
-      <ul class="bulletpoints">
-        {{#each selected.bulletpoints}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-      {{/if}}
-
+      {{#each copy.services }}
+        <div class="service-item">
+          <div class="title">
+          {{title}}
+          </div>
+          <div class="body">
+            {{#each body}}
+              <span>{{this}}</span>
+            {{/each}}
+          </div>
+        </div>
+      {{/each}}
     </div>
   </script>
 
@@ -107,8 +114,7 @@
           {{/if}}
           {{#if email}}
             <div class="op-hover" >
-              <div class="op-button btn">{{button}}</div>
-              <div class="op-email btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
+              <div class="op-button btn" {{bindAttr data-email="email" }} onclick="email(this);" >{{button}}</div>
             </div>
           {{/if}}
         </li>
@@ -139,12 +145,12 @@
     <ul id="locations">
     {{#each copy.locations}}
       <li>
-        <div class="location-name">{{name}}</div>
-        <div class="location-other" >{{title}}</div>
-        <div class="location-other">{{address}}</div>
-        <div class="location-other">{{city}}</div>
-        <div class="location-other topspacing">{{phone}}</div>
-        <div class="location-other btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>
+        {{#if name}}<div class="location-name">{{name}}</div>{{/if}}
+        {{#if title}}<div class="location-other" >{{title}}</div>{{/if}}
+        {{#if address}}<div class="location-other">{{address}}</div>{{/if}}
+        {{#if city}}<div class="location-other">{{city}}</div>{{/if}}
+        {{#if phone}}<div class="location-other topspacing">{{phone}}</div>{{/if}}
+        {{#if email}}<div class="location-other btn"><a {{bindAttr data-email="email" }} onclick="email(this);" >{{email}}</a></div>{{/if}}
         {{#if lat }}
           <div class="location-onmap btn" onclick="ContactView.centerMap(this);" 
             {{bindAttr data-lat="lat"}} {{bindAttr data-lng="lng"}} >
@@ -156,10 +162,14 @@
     </ul>
 
     <div id="online" >
-      <div class="title" >{{copy.online.title}}</div>
-      <div id="share-btns">
-      
-      </div>
+      {{#if copy.online }}
+        <div class="title" >{{copy.online.title}}</div>
+        <div id="share-btns">
+          <a id="share-btn-tw" class="btn share-btn" {{bindAttr href="copy.online.facebook"}} target="_blank" ></a>
+          <a id="share-btn-fb" class="btn share-btn" {{bindAttr href="copy.online.facebook"}} target="_blank" ></a>
+          <a id="share-btn-gp" class="btn share-btn" {{bindAttr href="copy.online.facebook"}} target="_blank" ></a>
+        </div>
+      {{/if}}
     </div>
 
   </script>
@@ -167,24 +177,6 @@
   <script type="text/x-handlebars" data-template-name="footer-content" >
     {{copy.center}}
   </script>
-
-<!--
-    <div id="footer-left">{{copy.left}}</div>
-    <div id="footer-right">
-        <div class="share-btn" id="gplus-share">
-          <div class="g-plusone" data-size="medium"></div>
-        </div>
-        <div class="share-btn" id="fb-share">
-          <div class="fb-like" data-send="false" data-layout="button_count" data-width="150" data-show-faces="false">
-          </div>
-        </div>
-        <div class="share-btn" id="twitter-share">
-          <a href="https://twitter.com/share" class="twitter-share-button" data-via="sicgrp">Tweet</a>
-        </div>
-     </div>
--->
-
-
 
   <!-- 3rd party libraries -->  
   <script src="assets/js/libs/jquery-1.7.2.min.js"></script>
@@ -236,6 +228,7 @@
             // -the rest managed by require.js 
             // -or all minified into one script?
             insertScripts:[
+                        "mapStyle",
                         "copy",
                         "app"
                         ],
@@ -277,7 +270,6 @@
       AboutView.appendTo("#container");
       ServicesView.appendTo("#container");
       OpportunitiesView.appendTo("#container");
-      //TeamView.appendTo("#container");
       ContactView.appendTo("#container");
       FooterView.appendTo("#container");
       NavView.appendTo("#container");
@@ -302,7 +294,6 @@
         TopView.resize(obj);
         AboutView.resize(obj);
         ServicesView.resize(obj);
-        //TeamView.resize(obj);
         OpportunitiesView.resize(obj);
         ContactView.resize(obj);
 
@@ -312,32 +303,9 @@
     function email(t){
       window.open("mailto:"+$(t).data('email') );
     }
+    
   </script>
 
-
-  <!-- FACEBOOK LIKE BUTTON -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=266254200155736";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-
-<!-- GOOGLE PLUS 1 Place this tag after the last +1 button tag. -->
-<script type="text/javascript">
-  (function() {
-  var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-  po.src = 'https://apis.google.com/js/plusone.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-
-<!-- TWITTER -->
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-</script>
 
 </body>
 </html>

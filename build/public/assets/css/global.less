@@ -19,51 +19,29 @@ html, body{
 @import 'content';
 @import 'nav';
 
-.share-btn{
-  float:right;
-  position: relative;
-  display:inline;
-  overflow: hidden;
-  width:90px; 
-  height:21px;
-  margin-right: 25px;
-}
-
-#twitter-share{
-  top:1px;
-  width:58px;
-}
-#fb-share{
-  width:49px;
-}
-#gplus-share{
-  width:33px;
-  top:1px;
-  margin-right:0px;
-}
-
 //Z-INDEXES:
 .backgroundImage{
   z-index: 1;
 }
+.top #bkgd{
+  z-index: 5;
+}
+.top .content{
+  z-index: 10;
+}
+
 .services .title-master{
   z-index: 200;
 }
 .services .content{
   z-index: 210;
 }
-.top #bkgd{
-  z-index: 5;
-}
 
-.top .content{
-  z-index: 10;
-}
 .navigation{
-  z-index: 100;
+  z-index: 910;
 }
 #nav-arrow{
-  z-index: 90;
+  z-index: 900;
 }
 
 
