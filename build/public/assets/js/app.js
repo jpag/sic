@@ -136,20 +136,25 @@ var ServicesView = Em.View.create({
 	
 	backgroundImage: global.assets()+'images/bkgds/'+copy.service.imgname,
 
+	carouselState:0,
+
 	childView:Em.View.create({
 		templateName:"service-content",
 		classNames:["servicesView"],
 		name:"Services",
 		copy:copy.service,
-		//default one load it up ASAP
-		selected:copy.service.services[0],
-
+		
 		init:function(){
 			this._super();
 		},
 	
 		didInsertElement:function(){
-			
+			this.$(".right-arrow").bind({
+				"click":ServicesView.carouselClickRight
+			})
+			this.$(".left-arrow").bind({
+				"click":ServicesView.carouselClickLeft
+			})
 		}
 	}),
 
@@ -158,6 +163,63 @@ var ServicesView = Em.View.create({
 		this.childView.appendTo( this.$('.content') );
   	},
   	
+  	carouselClickRight : function(){
+  		var newVal = ServicesView.carouselState+1;
+  		var max = copy.service.services.length-1;
+  		var disable = false;
+
+  		if( newVal >= max ){
+  			//too far:
+  			newVal = max;
+  			disable = true;
+  		}
+		var left = -newVal * $(window).width();
+
+		ServicesView.carouselState = newVal;
+		ServicesView.animateCarousel(left , false, disable );
+
+  	},
+
+  	carouselClickLeft : function(){
+  		var min = 0;
+  		var newVal = ServicesView.carouselState-1
+  		var disable = false;
+
+		if( newVal <= min ){
+			newVal = 0;
+			disable = true;
+		}
+
+		var left = -newVal * $(window).width();
+
+		ServicesView.carouselState = newVal;
+		ServicesView.animateCarousel(left , disable, false );  		
+  	},
+
+  	animateCarousel:function(left, disableLeft, disableRight ){
+
+  		ServicesView.disableArrow('.right-arrow',disableRight);
+  		ServicesView.disableArrow('.left-arrow', disableLeft);
+
+  		//update circle thing at bottom
+  		Debug.trace( ServicesView.$("service-content") );
+  		Debug.trace( left );
+  		ServicesView.$("#service-content").animate({
+  			"left":left
+  		})
+  	},
+
+  	disableArrow:function(_class,boo){
+  		Debug.trace(_class);
+  		if( boo ){
+  			ServicesView.$(_class).addClass("disable");
+  		}else{
+  			if( ServicesView.$(_class).hasClass("disable") ){
+  				ServicesView.$(_class).removeClass("disable");
+  			}
+  		}
+  		
+  	},
   	resize:function(obj){
   		
   		var val = (obj.width - ServicesView.$(".backgroundImage img").width() ) /2;
