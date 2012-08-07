@@ -167,37 +167,34 @@
 			color:@defaultGrey-font;
 		}
 		.bottom{
-			padding-top:20px;
-			padding-bottom:30px;
+			padding-top:10px;
+			padding-bottom:40px;
 			height:19px;	
 		}
-		#twitter-handle, #twitter-time{
-			
-		}
-		#twitter-handle{
-			color:@red-font;
-			position: relative;
-			float:left;
-			font-family: 'Lato-Regular';
-			width:50%;
-		}
+		
+		// #twitter-handle{
+		// 	color:@red-font;
+		// 	position: relative;
+		// 	float:left;
+		// 	font-family: 'Lato-Regular';
+		// 	width:50%;
+		// }
+
 		#twitter-time{
 			.font-italics();
 			color:#5e5e5e;
 			position: relative;
 			float:right;
 			text-transform: uppercase;
-			width:50%;
+			//width:50%;
 			text-align: right;
 		}
 	}
 }
 
-@servicesHeight:611px;
+@servicesHeight:450px;
 
 .services{
-	
-
 	background-color:#b3a07f;
 	height:@servicesHeight;
 	color:#FFFFFF;
@@ -207,11 +204,13 @@
 
 	.content{
 		width:100%;
+		overflow: hidden;
 	}
 
 	.servicesView{
 		width:100%;
 		position: relative;
+		height:288px;
 
 		@arrowHeight:24px;
 		@arrowPadding:20px;
@@ -220,7 +219,7 @@
 			position:absolute;
 			width:14px;
 			height:@arrowHeight;
-			top: 100px; //(@servicesHeight) / 2;
+			top: 100px;
 		}
 
 		.left-arrow{
@@ -238,6 +237,28 @@
 		.arrow.disable{
 			background-position:0px -@arrowHeight*2;
 		}
+
+
+		#carousel-position{
+			position:absolute;
+			bottom:30px;
+		}
+
+		.carousel-circle{
+			//want to use border radius but IE doesn't support it always:
+			background-image:url("../images/ui/btn-services-carousel.png");
+			width:11px;
+			height:11px;
+			position: relative;
+			float:left;
+			padding-left:5px;
+			padding-right:5px;
+		}
+		.carousel-circle.active,
+		.carousel-circle:hover{
+			background-position: 0px -11px;
+		}
+
 
 	}
 
@@ -498,7 +519,8 @@
 
 .footer{
 	background-color:@dark-bkgd;
-	padding-top:45px;
+	// padding-top:45px;
+	top:100px;
 	text-align: center;
 	.font-paragraph-small();
 	color:@light-colortext-onblack;

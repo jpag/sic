@@ -4,8 +4,7 @@ var TopView = Em.View.create({
 	classNames:["top", "container"],
 	
 	bkgd:{w:1500, h:413},
-	setHeight:413,
-
+	
 	imgBkgd:function(){
 		return global.assets()+'images/bkgds/main-bkgd.jpg';
   	},
@@ -36,7 +35,7 @@ var TopView = Em.View.create({
   	resize:function(obj){
   		var availH = obj.height - AboutView.$().height();
 
-  		var h = TopView.setHeight; //(availH < TopView.bkgd.h )? TopView.bkgd.h : availH ;
+  		var h = TopView.bkgd.h;
   		
   		TopView.$().css({
   				"height":h
@@ -55,6 +54,10 @@ var TopView = Em.View.create({
   		if( obj.width > tw ){
   		 	tw = obj.width;
   		 	th = 1/bkgdRatio*tw;
+  		 }
+  		 if( th < TopView.bkgd.h ){
+  		 	th = TopView.bkgd.h;
+  		 	tw = bkgdRatio/1*TopView.bkgd.h;
   		 }
 
   		 TopView.$('#bkgd').css({
@@ -145,6 +148,10 @@ var ServicesView = Em.View.create({
 		copy:copy.service,
 		
 		init:function(){
+			for( var c =0; c < this.copy.services.length; c++){
+				this.copy.services[c].id = c;
+			}
+
 			this._super();
 		},
 	
@@ -155,6 +162,9 @@ var ServicesView = Em.View.create({
 			this.$(".left-arrow").bind({
 				"click":ServicesView.carouselClickLeft
 			})
+			this.$(".carousel-circle").bind({
+				"click":ServicesView.carouselClickCircle
+			})
 		}
 	}),
 
@@ -163,47 +173,55 @@ var ServicesView = Em.View.create({
 		this.childView.appendTo( this.$('.content') );
   	},
   	
+  	carouselClickCircle : function(){
+  		var id = $(this).data('id');
+  		ServicesView.gotoSpecificCarouselState(id)
+  	},
+
   	carouselClickRight : function(){
-  		var newVal = ServicesView.carouselState+1;
-  		var max = copy.service.services.length-1;
-  		var disable = false;
-
-  		if( newVal >= max ){
-  			//too far:
-  			newVal = max;
-  			disable = true;
-  		}
-		var left = -newVal * $(window).width();
-
-		ServicesView.carouselState = newVal;
-		ServicesView.animateCarousel(left , false, disable );
-
+  		ServicesView.gotoSpecificCarouselState(ServicesView.carouselState+1);
   	},
 
   	carouselClickLeft : function(){
-  		var min = 0;
-  		var newVal = ServicesView.carouselState-1
-  		var disable = false;
+  		ServicesView.gotoSpecificCarouselState(ServicesView.carouselState-1);	
+  	},
 
-		if( newVal <= min ){
-			newVal = 0;
-			disable = true;
-		}
+  	gotoSpecificCarouselState:function(id){
+  		if( ServicesView.carouselState != id ){
+  			var min = 0;
+  			var max = copy.service.services.length-1;
+  			
+  			var disableRight = false;
+  			var disableLeft = false;
 
-		var left = -newVal * $(window).width();
+  			if( id <= min ){
+  				//left
+  				id = 0;
+  				disableLeft = true;
+	  		}else if(id >= max){
+  				//right
+  				id = max;
+  				disableRight = true;
+  			}
+  			
+  			var left = -id * $(window).width();
+  			ServicesView.carouselState = id;
+			ServicesView.animateCarousel(left , disableLeft, disableRight );  		
 
-		ServicesView.carouselState = newVal;
-		ServicesView.animateCarousel(left , disable, false );  		
+  		}else{
+  			return false;
+  		}
   	},
 
   	animateCarousel:function(left, disableLeft, disableRight ){
 
-  		ServicesView.disableArrow('.right-arrow',disableRight);
+  		ServicesView.disableArrow('.right-arrow', disableRight);
   		ServicesView.disableArrow('.left-arrow', disableLeft);
 
   		//update circle thing at bottom
-  		Debug.trace( ServicesView.$("service-content") );
-  		Debug.trace( left );
+  		ServicesView.$(".carousel-circle").removeClass('active');
+  		ServicesView.$(".carousel-circle[data-id='"+ServicesView.carouselState+"']").addClass('active');
+
   		ServicesView.$("#service-content").animate({
   			"left":left
   		})
@@ -235,6 +253,10 @@ var ServicesView = Em.View.create({
 		$("#service-content").css({
 				"width":obj.width*copy.service.services.length
 		});
+
+		ServicesView.$("#carousel-position").css({
+			"left": (obj.width-ServicesView.$("#carousel-position").width() )/2
+		})
 
   		
   	}
@@ -487,7 +509,7 @@ var NavView = Em.View.create({
 		//Debug.trace( delta);
 		//?? resizeAll(); 
 
-		NavView.resize({width:$(window).width() , height:$(window).height() });
+		NavView.resize({width:global.width() , height:$(window).height() });
 	},
 
 	resize:function(obj){
@@ -501,7 +523,8 @@ var NavView = Em.View.create({
 
 		NavView.$().css({
 			'position':pos,
-			'top':top
+			'top':top,
+			'width':obj.width
 			//,'left':left
 		});
 

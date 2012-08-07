@@ -100,6 +100,11 @@
         </div>
       {{/each}}
     </div>
+    <div id="carousel-position">
+      {{#each copy.services }}
+        <div class="carousel-circle btn" {{bindAttr data-id="id"}} ></div>
+      {{/each}}
+    </div>
   </script>
 
 
@@ -178,15 +183,13 @@
     {{copy.center}}
   </script>
 
+
   <!-- 3rd party libraries -->  
   <script src="assets/js/libs/jquery-1.7.2.min.js"></script>
   <script src="assets/js/libs/jquery.mousewheel.js"></script>
   <script src="assets/js/libs/ember-0.9.8.1.min.js"></script>
   <!-- google maps -->
   <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-
-  
-  
 
   <script src="assets/js/debugger.js"></script>
   <script type="text/javascript" >
@@ -223,7 +226,11 @@
             },
 
             minHeight:650,
+            minWidth:1010,
 
+            width:function(){
+              return ($(window).width() < global.minWidth )? global.minWidth : $(window).width();
+            },
             //Should be one script on start:
             // -the rest managed by require.js 
             // -or all minified into one script?
@@ -289,8 +296,14 @@
 
     function resizeAll (){
 
-        var obj = {width:$(window).width() , height:$(window).height() };
+        var w = global.width();
         
+        var obj = {width:w , height:$(window).height() };
+        
+        $("html,body").css({
+          "width":w
+        });
+
         TopView.resize(obj);
         AboutView.resize(obj);
         ServicesView.resize(obj);

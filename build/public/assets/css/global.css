@@ -543,16 +543,9 @@ body {
   color: #444444;
 }
 .about #twitter-container .bottom {
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 40px;
   height: 19px;
-}
-.about #twitter-container #twitter-handle {
-  color: #f60000;
-  position: relative;
-  float: left;
-  font-family: 'Lato-Regular';
-  width: 50%;
 }
 .about #twitter-container #twitter-time {
   font-family: 'Lato-LightItalic';
@@ -560,38 +553,58 @@ body {
   position: relative;
   float: right;
   text-transform: uppercase;
-  width: 50%;
   text-align: right;
 }
 .services {
   background-color: #b3a07f;
-  height: 611px;
+  height: 450px;
   color: #FFFFFF;
 }
 .services .content {
   width: 100%;
+  overflow: hidden;
 }
 .services .servicesView {
   width: 100%;
   position: relative;
+  height: 288px;
 }
 .services .servicesView .arrow {
   position: absolute;
   width: 14px;
   height: 24px;
-  top: 293.5px;
+  top: 100px;
+}
+.services .servicesView .left-arrow {
+  left: 20px;
+  background-image: url("../images/ui/arrow-left.png");
+}
+.services .servicesView .right-arrow {
+  right: 20px;
+  background-image: url("../images/ui/arrow-right.png");
 }
 .services .servicesView .arrow:hover {
   background-position: 0px -24px;
 }
-.services .servicesView .arrow.disabled {
+.services .servicesView .arrow.disable {
   background-position: 0px -48px;
 }
-.services .servicesView .leftarrow {
-  left: 0px;
+.services .servicesView #carousel-position {
+  position: absolute;
+  bottom: 30px;
 }
-.services .servicesView .rightarrow {
-  right: 0px;
+.services .servicesView .carousel-circle {
+  background-image: url("../images/ui/btn-services-carousel.png");
+  width: 11px;
+  height: 11px;
+  position: relative;
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.services .servicesView .carousel-circle.active,
+.services .servicesView .carousel-circle:hover {
+  background-position: 0px -11px;
 }
 .services .title-master {
   border-bottom: 1px solid #c8c8c8;
@@ -599,6 +612,7 @@ body {
 .services #service-content {
   width: 1010px;
   position: relative;
+  overflow: hidden;
 }
 .services #service-content .service-item {
   width: 1010px;
@@ -617,7 +631,9 @@ body {
 .services #service-content .service-item .body {
   font-size: 15px;
   line-height: 24px;
-  margin-bottom: 10px;
+  position: relative;
+  margin: auto;
+  width: 757.5px;
 }
 .opportunities {
   background-color: #f8f8f8;
@@ -807,7 +823,7 @@ body {
 }
 .footer {
   background-color: #181818;
-  padding-top: 45px;
+  top: 100px;
   text-align: center;
   font-size: 13px;
   line-height: 19px;
@@ -887,48 +903,15 @@ body {
 .services .content {
   z-index: 210;
 }
+.services .arrow {
+  z-index: 275;
+}
 .navigation {
   z-index: 910;
 }
 #nav-arrow {
   z-index: 900;
 }
-/*
-@siteWidth: 1024px;
-@gutterWidth: 20px;
-@sidebarWidth: 300px;
- 
-body {
-  margin: 0 auto;
-  width: @siteWidth;
-}
-.content {
-  float: left;
-  width: @siteWidth - (@sidebarWidth+@gutterWidth);
-}
-.sidebar {
-  float: left;
-  margin-left: @gutterWidth;
-  width: @sidebarWidth;
-}
-
-.text3d(@color) {
-  color: @color;
-  text-shadow: 1px 1px 0px darken(@color, 5%),
-               2px 2px 0px darken(@color, 10%),
-               3px 3px 0px darken(@color, 15%),
-               4px 4px 0px darken(@color, 20%),
-               4px 4px 2px #000;
-}
-
-@base-url: "http://assets.fnord.com";
- 
-span {
-  font-size: 32pt;
-  .text3d(#0982c1);
-  background-image: url("@{base-url}/images/bg.png");
-}
-*/
 /*END CUSTOM CODE*/
 .ir {
   display: block;
