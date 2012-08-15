@@ -38,7 +38,7 @@ var TopView = Em.View.create({
   		var h = TopView.bkgd.h;
   		
   		TopView.$().css({
-  				"height":h
+  				"height":380+50
   		})
   		
   		$(".top-content").css({

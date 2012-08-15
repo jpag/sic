@@ -1,6 +1,6 @@
 var copy = {
 	main:{
-		title:"Frontier Insight and Access for the 21st Century Public Diplomacy craft.",
+		title:"Strategic information & communications group.",
 		subtitle:"Read more about our formulas:"
 	},
 	about:{
