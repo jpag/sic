@@ -106,23 +106,6 @@
     </div>
   </script>
 
- <!--
-    <div id="service-content">
-      {{#each copy.services }}
-        <div class="service-item">
-          <div class="title">
-          {{title}}
-          </div>
-          <div class="body">
-            {{#each body}}
-              <span>{{this}}</span>
-            {{/each}}
-          </div>
-        </div>
-      {{/each}}
-    </div>
-    -->
-
   <script type="text/x-handlebars" data-template-name="opportunities-content" >
     <ul>
       {{#each copy.columns}}
@@ -185,9 +168,10 @@
       {{#if copy.online }}
         <div class="title" >{{copy.online.title}}</div>
         <div id="share-btns">
-          <a id="share-btn-tw" class="btn share-btn" {{bindAttr href="copy.online.facebook"}} target="_blank" ></a>
+          <a id="share-btn-tw" class="btn share-btn" {{bindAttr href="copy.online.twitter"}} target="_blank" ></a>
           <a id="share-btn-fb" class="btn share-btn" {{bindAttr href="copy.online.facebook"}} target="_blank" ></a>
-          <a id="share-btn-gp" class="btn share-btn" {{bindAttr href="copy.online.facebook"}} target="_blank" ></a>
+          <a id="share-btn-gp" class="btn share-btn" {{bindAttr href="copy.online.google"}} target="_blank" ></a>
+          <a id="share-btn-ln" class="btn share-btn" {{bindAttr href="copy.online.linkedin"}} target="_blank" ></a>
         </div>
       {{/if}}
     </div>
@@ -294,6 +278,7 @@
       OpportunitiesView.appendTo("#container");
       ContactView.appendTo("#container");
       FooterView.appendTo("#container");
+
       NavView.appendTo("#container");
 
     });

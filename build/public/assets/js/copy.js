@@ -120,7 +120,8 @@ var copy = {
 			title:"Online",
 			facebook:"http://www.facebook.com/",
 			twitter:"http://www.twitter.com/",
-			google:"http://www.google.com/"
+			google:"http://www.google.com/",
+			linkedin:"http://www.linkedin.com/"
 		}
 	},
 	footer:{
