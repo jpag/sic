@@ -84,8 +84,29 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="service-content" >
-    <div class="arrow btn left-arrow disable"></div>
-    <div class="arrow btn right-arrow"></div>
+    
+    <div id="services-graphic-container" class="btn" >
+      <div id="services-graphic-bkgd" ></div>
+
+      <img id="services-graphic" {{bindAttr src="imgSprite"}} usemap="#servicemap" />
+      
+      <map id="servicemap" name="servicemap">
+        <area shape="poly" coords="0,0,90,0,122,90,0,165" data-num="1" />
+        <area shape="poly" coords="91,0,122,90,204,170,207,0" data-num="2" />
+        <area shape="poly" coords="0,170,91,123,211,170,170,203,0,203" data-num="3" />
+      </map>
+      
+    </div>
+
+    <div id="services-description">
+      <div id="services-selected-title">{{selectedCopy.title}}</div>
+      {{#each selectedCopy.body }}
+        <span>{{this}}</span>
+      {{/each}}
+    </div>
+  </script>
+
+ <!--
     <div id="service-content">
       {{#each copy.services }}
         <div class="service-item">
@@ -100,13 +121,7 @@
         </div>
       {{/each}}
     </div>
-    <div id="carousel-position">
-      {{#each copy.services }}
-        <div class="carousel-circle btn" {{bindAttr data-id="id"}} ></div>
-      {{/each}}
-    </div>
-  </script>
-
+    -->
 
   <script type="text/x-handlebars" data-template-name="opportunities-content" >
     <ul>

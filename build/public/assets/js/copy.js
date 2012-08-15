@@ -22,6 +22,13 @@ var copy = {
 	service:{
 		imgname:"service-bkgd.jpg",
 		title:"Services",
+		startText:{
+			title:"",
+			body:[
+				"SIC Group provides tailored high-end public diplomacy",
+				"solutions in frontier markets."
+			]
+		},
 		services:[
 			{
 				title:"Policy Advisory and Market Facilitation",

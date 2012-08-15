@@ -137,34 +137,27 @@ var ServicesView = Em.View.create({
 	classNames:["services", "container"],
 	displayTitle:copy.service.title,
 	
-	backgroundImage: global.assets()+'images/bkgds/'+copy.service.imgname,
-
-	carouselState:0,
-
 	childView:Em.View.create({
 		templateName:"service-content",
 		classNames:["servicesView"],
 		name:"Services",
 		copy:copy.service,
-		
+		selectedCopy:null,
+		imgSprite:global.assets()+'images/ui/blank-for-service-map.png',
+		//imgSprite:global.assets()+'images/graphics/services_sprite.png',
+
 		init:function(){
 			for( var c =0; c < this.copy.services.length; c++){
 				this.copy.services[c].id = c;
 			}
-
+			this.selectedCopy = this.copy.startText;
 			this._super();
 		},
 	
 		didInsertElement:function(){
-			this.$(".right-arrow").bind({
-				"click":ServicesView.carouselClickRight
-			})
-			this.$(".left-arrow").bind({
-				"click":ServicesView.carouselClickLeft
-			})
-			this.$(".carousel-circle").bind({
-				"click":ServicesView.carouselClickCircle
-			})
+			Debug.trace(' assign area val...');
+			this.$("area").mouseover(ServicesView.areaOver);
+			this.$("area").mouseout(ServicesView.areaOut);
 		}
 	}),
 
@@ -173,93 +166,50 @@ var ServicesView = Em.View.create({
 		this.childView.appendTo( this.$('.content') );
   	},
   	
-  	carouselClickCircle : function(){
-  		var id = $(this).data('id');
-  		ServicesView.gotoSpecificCarouselState(id)
-  	},
+  	areaOver:function(){
+  		Debug.trace(' OVER '+ $(this).data('num') );
+  		var num = parseInt( $(this).data('num') ) ;
+  		
+  		//$("#services-description").hide().fadeIn(250);
+  		$("#services-description").clearQueue();
+  		$("#services-description").css({
+  			"top":-20,
+  			"opacity":0
+  		}).animate({
+  			"top":0,
+  			"opacity":1
+  		})
+  		ServicesView.childView.set('selectedCopy' , copy.service.services[ num -1 ] );
+  		
+  		var gotoBkgd = "0px -"+ num*206+"px";
+  		Debug.trace( gotoBkgd );
 
-  	carouselClickRight : function(){
-  		ServicesView.gotoSpecificCarouselState(ServicesView.carouselState+1);
-  	},
-
-  	carouselClickLeft : function(){
-  		ServicesView.gotoSpecificCarouselState(ServicesView.carouselState-1);	
-  	},
-
-  	gotoSpecificCarouselState:function(id){
-  		if( ServicesView.carouselState != id ){
-  			var min = 0;
-  			var max = copy.service.services.length-1;
-  			
-  			var disableRight = false;
-  			var disableLeft = false;
-
-  			if( id <= min ){
-  				//left
-  				id = 0;
-  				disableLeft = true;
-	  		}else if(id >= max){
-  				//right
-  				id = max;
-  				disableRight = true;
-  			}
-  			
-  			var left = -id * $(window).width();
-  			ServicesView.carouselState = id;
-			ServicesView.animateCarousel(left , disableLeft, disableRight );  		
-
-  		}else{
-  			return false;
-  		}
-  	},
-
-  	animateCarousel:function(left, disableLeft, disableRight ){
-
-  		ServicesView.disableArrow('.right-arrow', disableRight);
-  		ServicesView.disableArrow('.left-arrow', disableLeft);
-
-  		//update circle thing at bottom
-  		ServicesView.$(".carousel-circle").removeClass('active');
-  		ServicesView.$(".carousel-circle[data-id='"+ServicesView.carouselState+"']").addClass('active');
-
-  		ServicesView.$("#service-content").animate({
-  			"left":left
+  		$("#services-graphic-bkgd").css({
+  			"background-position":gotoBkgd
   		})
   	},
 
-  	disableArrow:function(_class,boo){
-  		Debug.trace(_class);
-  		if( boo ){
-  			ServicesView.$(_class).addClass("disable");
-  		}else{
-  			if( ServicesView.$(_class).hasClass("disable") ){
-  				ServicesView.$(_class).removeClass("disable");
-  			}
-  		}
-  		
+  	areaOut:function(){
+  		$("#services-description").clearQueue();
+  		$("#services-description").css({
+  			"top":-20,
+  			"opacity":0
+  		}).delay(500).animate({
+  			"top":0,
+  			"opacity":1
+  		})
+
+
+  		ServicesView.childView.set('selectedCopy' , copy.service.startText );
+
+  		$("#services-graphic-bkgd").css({
+  			"background-position":"0px 0px"
+  		})
   	},
+
   	resize:function(obj){
-  		
-  		var val = (obj.width - ServicesView.$(".backgroundImage img").width() ) /2;
-  		ServicesView.$(".backgroundImage img").css({
-  			"left":val
-  		})
-
-  		//carousel
-  		$(".service-item").css({
-			"width":obj.width
-		})
-
-		$("#service-content").css({
-				"width":obj.width*copy.service.services.length
-		});
-
-		ServicesView.$("#carousel-position").css({
-			"left": (obj.width-ServicesView.$("#carousel-position").width() )/2
-		})
-
-  		
   	}
+
 });
 
 var OpportunitiesView = Em.View.create({

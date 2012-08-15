@@ -22,6 +22,7 @@
 		height:31px;
 		position: relative;
 	}
+	
 	.backgroundImage{
 		position: absolute;
 		top:0px;
@@ -131,10 +132,14 @@
 		width:@aboutBodyWidth;
 		margin-right:@marginBetween;
 		.floatLeft();
-		
+		font-size:14px;
+
 		.bold{
 			.font-paragraph();
+			font-size:14px;
 		}
+
+
 	}
 
 
@@ -196,112 +201,80 @@
 	}
 }
 
-@servicesHeight:450px;
-
 .services{
-	background-color:#b3a07f;
-	height:@servicesHeight;
-	color:#FFFFFF;
+	background: #181818; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover, #181818 0%, #000000 60%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#181818), color-stop(60%,#000000)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover, #181818 0%,#000000 60%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover, #181818 0%,#000000 60%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover, #181818 0%,#000000 60%); /* IE10+ */
+	background: radial-gradient(ellipse at center, #181818 0%,#000000 60%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181818', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */	
 
-	@graphicWidth:434px;
-	@marginBetween:20px;
+	height:680px;
+	color:#FFFFFF;
 
 	.content{
 		width:100%;
 		overflow: hidden;
 	}
 
-	.servicesView{
-		width:100%;
-		position: relative;
-		height:288px;
-
-		@arrowHeight:24px;
-		@arrowPadding:20px;
-
-		.arrow{
-			position:absolute;
-			width:14px;
-			height:@arrowHeight;
-			top: 100px;
-		}
-
-		.left-arrow{
-			left:@arrowPadding;
-			background-image:url("../images/ui/arrow-left.png");
-		}
-		.right-arrow{
-			right:@arrowPadding;
-			background-image:url("../images/ui/arrow-right.png");
-		}
-
-		.arrow:hover{
-			background-position:0px -@arrowHeight;
-		}
-		.arrow.disable{
-			background-position:0px -@arrowHeight*2;
-		}
-
-
-		#carousel-position{
-			position:absolute;
-			bottom:30px;
-		}
-
-		.carousel-circle{
-			//want to use border radius but IE doesn't support it always:
-			background-image:url("../images/ui/btn-services-carousel.png");
-			width:11px;
-			height:11px;
-			position: relative;
-			float:left;
-			padding-left:5px;
-			padding-right:5px;
-		}
-		.carousel-circle.active,
-		.carousel-circle:hover{
-			background-position: 0px -11px;
-		}
-
-
-	}
-
+	
 	.title-master{
 		border-bottom:1px solid RGBA(200,200,200,1);
 	}
+	@service-graphic-w:213px;
+	@service-graphic-h:206px;
 
-	#service-content{
-		width:@siteWidth;
+	#services-graphic-container{
+		width:@service-graphic-w;
+		height:@service-graphic-h;
 		position: relative;
-		overflow: hidden;
+		margin:auto;
+		margin-bottom:45px;
+	}
 
+	#services-graphic,
+	#services-graphic-bkgd {
+		display: block;
+		position: absolute;
+		top:0px;
+		left:0px;
+	}
 
-		.service-item{
-			width:@siteWidth;
-			height:100%;
-			position: relative;
-			float:left;
+	#services-graphic-bkgd{
+		width:@service-graphic-w;
+		height:@service-graphic-h;
+	}
+
+	#services-graphic-bkgd{
+		background-image:url("../images/graphics/services_sprite.png");
+	}
+	
+	#services-description{
+		.font-title(18px);
+		text-align: center;
+		margin: auto;
+		position: relative;
+		width:650px;
+
+		#services-selected-title{
+			.font-title(24px);
+			padding-bottom:20px;
 			text-align: center;
-
-			.title{
-				.font-title(28px);	
-				padding-bottom:40px;
-			}
-		
-			.body{
-				.font-paragraph-size();
-				position: relative;
-				margin:auto;
-				width:@siteWidth*.75;
-
-			}
+			margin: auto;
+			position: relative;
 		}
 
+		span{
+			display:block;
+		}
 	}
+
 }
 
 .opportunities{
-	background-color: #f8f8f8;
+	background-color: #DEDEDE;
 	height: 650px;
 	.font-paragraph-thin();
 	color:#232323;
