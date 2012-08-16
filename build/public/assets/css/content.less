@@ -151,7 +151,7 @@
 		.title{
 			padding-bottom: 30px;
 			color:@blue-tweet;
-			
+			font-family: 'Lato-Regular';
 			text-transform: uppercase;
 			
 			background-image: url("../images/icons/twittericon.png");
@@ -221,7 +221,7 @@
 
 	
 	.title-master{
-		border-bottom:1px solid RGBA(200,200,200,1);
+		//border-bottom:1px solid RGBA(200,200,200,1);
 	}
 	@service-graphic-w:213px;
 	@service-graphic-h:206px;
@@ -232,6 +232,7 @@
 		position: relative;
 		margin:auto;
 		margin-bottom:45px;
+		left:10px;
 	}
 
 	#services-graphic,
@@ -252,14 +253,22 @@
 	}
 	
 	#services-description{
-		.font-title(18px);
+		font-family: "Lato-Light";
+		font-size:15px;
+		letter-spacing: 1px;
+		line-height: 24px;
+
 		text-align: center;
 		margin: auto;
 		position: relative;
 		width:650px;
 
 		#services-selected-title{
-			.font-title(24px);
+			//.font-title(24px);
+			font-family: "TisaOT";
+			letter-spacing: 1px;
+			font-size: 18px;
+
 			padding-bottom:20px;
 			text-align: center;
 			margin: auto;
@@ -285,7 +294,6 @@
 	
 	ul{
 		position: relative; 
-		left:-@ul-padding-op;
 	}
 
 	li{
@@ -318,8 +326,13 @@
 		}
 		
 		.op-body{
+			position: relative;
 			.font-paragraph-small();
+			font-family: 'Lato-Regular';
 			font-size:12px;
+			top:0px;
+			.alphafull;
+			.animate-default(all,250ms);
 		}
 
 		.op-button{
@@ -339,11 +352,15 @@
 
 			margin-top:@ul-padding;
 			margin-bottom:@ul-padding;
-
 		}
 		.op-hover{
-			display:none;
-			position: relative;
+			//display:none;
+			.alphazero;
+			position: absolute;
+			width:100%;
+			top:160px;
+
+			.animate-default(all,350ms);
 		}
 
 		.op-button:hover{
@@ -377,15 +394,33 @@
 			top:-106px;
 		}
 		.op-body{
-			display: none;
+			//display: none;
+			.alphazero;
+			top:50px;
 		}
 		.op-hover{
 			display:block;
+			.alphafull;
+			top:180px;
 		}
 	}
-	
-
 }
+
+.ie8 .opportunities li .op-hover,
+.ie7 .opportunities li .op-hover,
+.ie6 .opportunities li .op-hover,
+.ie8 .opportunities li:hover .op-body,
+.ie7 .opportunities li:hover .op-body,
+.ie6 .opportunities li:hover .op-body{
+	display:none;	
+}
+.ie8 .opportunities li:hover .op-hover,
+.ie7 .opportunities li:hover .op-hover,
+.ie6 .opportunities li:hover .op-hover{
+	display:block;	
+}
+
+
 
 .contact{
 	background-color:@dark-bkgd;
@@ -425,8 +460,9 @@
 	.location-other, a{
 		font-size:12px;
 		line-height: 19px;
-		height:15px;
+		height:18px;
 		color:@light-colortext-onblack;
+
 	}
 
 	.topspacing{
@@ -479,6 +515,7 @@
 				//float:left;
 				//padding-right: 30px;
 				display:block;
+				margin-bottom:16px;
 			}
 			.share-btn:hover{
 				background-position:0px -@shareBtnHeight;
@@ -511,12 +548,11 @@
 
 .footer{
 	background-color:@dark-bkgd;
-	// padding-top:45px;
-	top:100px;
 	text-align: center;
 	.font-paragraph-small();
 	color:@light-colortext-onblack;
 	height:30px;
-	padding-bottom:30px;
+	padding-bottom:20px;
+	padding-top:30px;
 	
 }

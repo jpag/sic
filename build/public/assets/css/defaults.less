@@ -4,7 +4,7 @@
 @lightgray-font:#999999;
 
 //for footer text description/other NOT titles
-@light-colortext-onblack:#595959;
+@light-colortext-onblack:#9b9b9b;//#595959;
 
 @defaultGrey-font:#444444;
 
@@ -44,10 +44,10 @@ img{
 //add escape property when passing into this mixin
 // .animate-default(e("width, color, blah"));
 
-.animate-default(@property: all ){
-  -webkit-transition: @property 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835); 
-       -moz-transition: @property 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835); 
-        -ms-transition: @property 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835); 
-         -o-transition: @property 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835); 
-            transition: @property 500ms cubic-bezier(0.385, 0.205, 0.235, 0.835); 
+.animate-default(@property:all, @time:500ms ){
+  -webkit-transition: @property @time cubic-bezier(0.385, 0.205, 0.235, 0.835); 
+       -moz-transition: @property @time cubic-bezier(0.385, 0.205, 0.235, 0.835); 
+        -ms-transition: @property @time cubic-bezier(0.385, 0.205, 0.235, 0.835); 
+         -o-transition: @property @time cubic-bezier(0.385, 0.205, 0.235, 0.835); 
+            transition: @property @time cubic-bezier(0.385, 0.205, 0.235, 0.835); 
 }

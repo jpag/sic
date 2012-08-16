@@ -108,6 +108,6 @@ var mapStyle = [
       { lightness: 12 }
     ]
   },{
-    featureType: "water",
+    featureType: "water"
   }
 ]

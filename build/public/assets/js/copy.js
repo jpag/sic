@@ -113,7 +113,7 @@ var copy = {
 				name:"Libya",
 				city:"Tripoli & Benghazi",
 				phone:"+218913049165",
-				email:"libya@sicgroupllc.com",
+				email:"libya@sicgroupllc.com"
 			}
 		],
 		online:{
