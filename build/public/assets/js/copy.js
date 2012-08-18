@@ -1,7 +1,6 @@
 var copy = {
 	main:{
-		title:"Strategic information & communications group.",
-		subtitle:"Read more about our formulas:"
+		title:"Informing Policy and Communications"
 	},
 	about:{
 
@@ -92,8 +91,8 @@ var copy = {
 			{
 				name:"United States",
 				title: "C/O Winston & Strawn",
-				address: "1700 K St NW 20006",
-				city: "Washington D.C.",
+				address: "1700 K St.NW",
+				city: "Washington, D.C. 20006",
 				phone:"+1 (202) 420-0367",
 				email:"info@sicgroupllc.com ",
 				lat:38.9022446,
@@ -118,10 +117,10 @@ var copy = {
 		],
 		online:{
 			title:"Online",
-			facebook:"http://www.facebook.com/",
-			twitter:"http://www.twitter.com/",
-			google:"http://www.google.com/",
-			linkedin:"http://www.linkedin.com/"
+			facebook:"http://www.facebook.com/sicgroupllc",
+			twitter:"http://www.twitter.com/sicgrp",
+			google:"https://plus.google.com/114244813319320025933/posts",
+			linkedin:"http://www.linkedin.com/company/2691007?trk=tyah"
 		}
 	},
 	footer:{
